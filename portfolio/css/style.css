@@ -1,1 +1,10 @@
+@font-face {
+  font-family: "MerriweatherBold";
+  src: url("assets/fonts/MerriweatherBold.ttf");
+  font-weight: 700;
+}
 
+@font-face {
+  font-family: "Inter";
+  src: url("assets/fonts/Inter.ttf");
+}
