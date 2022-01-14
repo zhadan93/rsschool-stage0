@@ -58,8 +58,12 @@ html {
 
 .nav__list {
   display: flex;
-
+  
   list-style: none;
+}
+
+.nav__item {
+  padding: 0 15px;
 }
 
 .link {
@@ -67,10 +71,6 @@ html {
   color: #ffffff;
   text-decoration: none;
   font-weight: 400;
-}
-
-.nav__link {
-  padding: 0 15px;
 }
 
 .lang {
