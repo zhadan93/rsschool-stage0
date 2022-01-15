@@ -51,11 +51,8 @@ html {
   padding: 0 19px;
 }
 
-.logo {
-  padding-top: 12px;
-}
-
 .logo__icon {
+  display: block;
   width: 50px;
   height: 50px;
 }
@@ -101,11 +98,12 @@ html {
 }
 
 .footer__container {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 39px;
+  padding-bottom: 39px;
 }
 
 .footer__icon {
+  display: block;
   width: 32px;
   height: 32px;
 }
@@ -124,8 +122,4 @@ html {
 
 .github {
   padding-right: 13px;
-}
-
-.main {
-  height: 5295px;
 }
