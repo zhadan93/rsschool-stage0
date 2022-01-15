@@ -32,12 +32,13 @@ html {
 
   background-color: #000000;
 }
-
-.header__container {
+.container_space-between {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
 
+.header__container {
   background: url("../assets/img/bg.jpg");
   background-repeat: no-repeat;
   background-position: center 0;
