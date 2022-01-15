@@ -18,6 +18,13 @@ html {
 }
 
 .page {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+   
+
   font-family: "Inter";
   font-size: 20px;
   line-height: 40px;
@@ -89,3 +96,4 @@ html {
 .lang__link_active {
   color: #bdae82
 }
+
