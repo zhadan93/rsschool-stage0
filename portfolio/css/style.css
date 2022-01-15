@@ -74,8 +74,11 @@ html {
 }
 
 .lang {
-  padding-left: 19px;
   letter-spacing: 2px;
+}
+
+.header__lang {
+  padding-left: 19px;
 }
 
 .lang,
