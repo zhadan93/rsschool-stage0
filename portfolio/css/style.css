@@ -39,13 +39,13 @@ html {
 }
 
 .header__container {
+  display: flex;
   background: url("../assets/img/bg.jpg");
   background-repeat: no-repeat;
   background-position: center 0;
 }
 
 .container {
-  display: flex;
   width: 1440px;
   margin: 0 auto;
   padding: 0 19px;
@@ -114,6 +114,7 @@ html {
 }
 
 .footer__container {
+  display: flex;
   min-height: 150px;
 }
 
@@ -137,4 +138,50 @@ html {
 
 .github {
   padding-right: 13px;
+}
+
+.main {
+ margin-bottom: auto;
+}
+
+.hero__section {
+  padding: 160px 860px 330px 60px;
+
+  background-image: url('../assets/img/bg.jpg');
+  background-position: center -90px;
+  background-repeat: no-repeat;
+}
+
+.title {
+  font-family: "MerriweatherBold";
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 80px;
+  color: #bdae82;
+}
+
+.hero__title {
+  margin: 0;
+  margin-bottom: 10px;
+
+  font-size: 60px;
+  line-height: 120px;
+  color: #ffffff
+}
+
+.button {
+  margin-top: 25px;
+  width: 220px;
+  height: 55px;
+
+  line-height: 40px;
+  background-color: #bdae82;
+  border-width: 0;
+
+  transition: 0.9s;
+}
+
+.button:hover {
+  cursor: pointer;
+  color: #ffffff;
 }
