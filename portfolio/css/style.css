@@ -299,3 +299,23 @@ html {
   flex-wrap: wrap;
   gap: 25px;
 }
+
+.video {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video__button {
+  position: absolute;
+
+  background-color: transparent;
+  border: none;
+}
+
+.video__icon {
+  display: block;
+  width: 130px;
+  height: 130px;
+}
