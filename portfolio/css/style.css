@@ -144,6 +144,11 @@ html {
  margin-bottom: auto;
 }
 
+.section {
+  padding: 100px 20px;
+  padding-bottom: 0;
+}
+
 .hero__section {
   padding: 160px 860px 330px 60px;
 
@@ -153,20 +158,24 @@ html {
 }
 
 .title {
+  margin: 0;
+  margin-bottom: 60px;
+  
   font-family: "MerriweatherBold";
   font-weight: 700;
   font-size: 40px;
   line-height: 80px;
   color: #bdae82;
+  text-align: center;
 }
 
 .hero__title {
-  margin: 0;
   margin-bottom: 10px;
 
   font-size: 60px;
   line-height: 120px;
-  color: #ffffff
+  color: #ffffff;
+  text-align: left;
 }
 
 .button {
