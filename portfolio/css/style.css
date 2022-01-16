@@ -145,8 +145,7 @@ html {
 }
 
 .section {
-  padding: 100px 20px;
-  padding-bottom: 0;
+  padding-top: 100px;
 }
 
 .hero__section {
@@ -178,8 +177,11 @@ html {
   text-align: left;
 }
 
+.hero__text {
+  margin-bottom: 25px;
+}
+
 .button {
-  margin-top: 25px;
   width: 220px;
   height: 55px;
 
@@ -194,3 +196,54 @@ html {
   cursor: pointer;
   color: #ffffff;
 }
+
+.skills {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.skills__item {
+  width: 320px;
+  padding: 100px 19px 10px;
+
+  text-align: center;
+
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.skills__item:nth-child(1) {
+  background-image: url("../assets/svg/camera.svg");
+  background-size: 62px 50px;
+}
+
+.skills__item:nth-child(2) {
+  background-image: url("../assets/svg/video.svg");
+  background-size: 60px 50px;
+}
+
+.skills__item:nth-child(3) {
+  background-image: url("../assets/svg/image.svg");
+  background-size: 66px 50px;
+}
+
+.skills__item:nth-child(4) {
+  background-image: url("../assets/svg/mic.svg");
+  background-size: 32px 50px;
+}
+
+.text_bold {
+  padding-bottom: 2px;
+
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.text_small {
+  margin-bottom: 0;
+
+  font-size: 18px;
+  line-height: 36px;
+}
+
