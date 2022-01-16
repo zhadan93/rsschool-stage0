@@ -183,7 +183,6 @@ html {
   font-size: 40px;
   line-height: 80px;
   color: #bdae82;
-  
 }
 
 .section__title::before,
@@ -318,4 +317,38 @@ html {
   display: block;
   width: 130px;
   height: 130px;
+}
+
+.price__card {
+  padding: 40px 0;
+  width: 450px;
+
+  text-align: center;
+
+  border: 3px solid #bdae82;
+}
+
+.title_middle {
+  margin-bottom: 20px;
+
+  font-size: 28px;
+  line-height: 56px;
+  text-align: center;
+}
+
+.price__dollars {
+  margin-bottom: 20px;
+
+  font-size: 24px;
+  line-height: 48px;
+  color: #bdae82;
+  text-align: center;
+}
+
+.price__item {
+  display: block;
+}
+
+.price__item:nth-child(7) {
+  margin-bottom: 40px;
 }
