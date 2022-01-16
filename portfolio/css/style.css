@@ -158,23 +158,44 @@ html {
 
 .title {
   margin: 0;
-  margin-bottom: 60px;
-  
-  font-family: "MerriweatherBold";
-  font-weight: 700;
-  font-size: 40px;
-  line-height: 80px;
-  color: #bdae82;
-  text-align: center;
-}
-
-.hero__title {
   margin-bottom: 10px;
 
+  font-family: "MerriweatherBold";
+  font-weight: 700;
   font-size: 60px;
   line-height: 120px;
   color: #ffffff;
   text-align: left;
+}
+
+.section__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 60px;
+
+  font-size: 40px;
+  line-height: 80px;
+  color: #bdae82;
+  
+}
+
+.section__title::before,
+.section__title::after {
+  content: '';
+  width: 274px;
+  height: 2px;
+  
+  background-color: #bdae82;
+}
+
+.section__title::before {
+  margin-right: 21px;
+}
+
+.section__title::after {
+  margin-left: 21px;
 }
 
 .hero__text {
