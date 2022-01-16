@@ -54,7 +54,7 @@ html {
 .icon {
   fill: #ffffff;
 
-  transition: 0.9s;
+  transition: 0.7s;
 }
 
 .icon:hover {
@@ -93,7 +93,7 @@ html {
   text-decoration: none;
   font-weight: 400;
 
-  transition: 0.9s;
+  transition: 0.7s;
 }
 
 .link:hover {
@@ -215,7 +215,7 @@ html {
   background-color: #bdae82;
   border-width: 0;
 
-  transition: 0.9s;
+  transition: 0.7s;
 }
 
 .button:hover {
@@ -273,3 +273,29 @@ html {
   line-height: 36px;
 }
 
+.button__container {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 60px;
+}
+
+.button_no-active {
+  color: #bdae82;
+
+  background-color: transparent;
+  border: 2px solid #bdae82;
+
+  transition: 0.7s;
+}
+
+.button_no-active:hover {
+  color: #ffffff;
+}
+
+.gallery__container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
