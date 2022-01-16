@@ -114,8 +114,7 @@ html {
 }
 
 .footer__container {
-  padding-top: 39px;
-  padding-bottom: 39px;
+  min-height: 150px;
 }
 
 .footer__icon {
