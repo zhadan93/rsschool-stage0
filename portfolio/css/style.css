@@ -156,6 +156,11 @@ html {
   background-repeat: no-repeat;
 }
 
+.title__container {
+  width: 50%;
+  margin: 0 auto;
+}
+
 .title {
   margin: 0;
   margin-bottom: 10px;
@@ -184,7 +189,7 @@ html {
 .section__title::before,
 .section__title::after {
   content: '';
-  width: 274px;
+  width: 100%;
   height: 2px;
   
   background-color: #bdae82;
