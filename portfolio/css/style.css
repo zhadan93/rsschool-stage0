@@ -1,0 +1,424 @@
+@font-face {
+  font-family: "MerriweatherBold";
+  src: url("../assets/fonts/MerriweatherBold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/InterVariableFont.ttf");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; 
+}
+
+.page {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+   
+
+  font-family: "Inter";
+  font-size: 20px;
+  line-height: 40px;
+  color: #ffffff;
+
+  background-color: #000000;
+}
+.container_space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__container {
+  display: flex;
+  background: url("../assets/img/bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center 0;
+}
+
+.container {
+  width: 1440px;
+  margin: 0 auto;
+  padding: 0 19px;
+}
+
+.icon {
+  fill: #ffffff;
+
+  transition: 0.7s;
+}
+
+.icon:hover {
+  fill: #bdae82;
+}
+
+.logo__icon {
+  display: block;
+  width: 50px;
+  height: 50px;
+}
+
+.nav {
+  margin-left: auto;
+}
+
+.nav__list,
+.footer__list {
+  display: flex;
+  padding: 0px;
+  
+  list-style: none;
+}
+
+.nav__item {
+  padding-left: 30px;
+}
+
+.nav__item:last-child {
+  padding-right: 31px;
+}
+
+.link {
+  line-height: 50px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 400;
+
+  transition: 0.7s;
+}
+
+.link:hover {
+  color: #bdae82;
+}
+
+.lang {
+  letter-spacing: 2px;
+}
+
+.lang,
+.lang__link {
+  font-weight: 700;
+}
+
+.lang__link_active {
+  color: #bdae82
+}
+
+.footer__container {
+  display: flex;
+  min-height: 150px;
+}
+
+.footer__icon {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+
+.footer__item {
+  padding-right: 20px;
+}
+
+.footer__item:last-child {
+  padding-right: 0;
+}
+
+.footer__text {
+  padding-right: 21px;
+}
+
+.github {
+  padding-right: 13px;
+}
+
+.main {
+ margin-bottom: auto;
+}
+
+.section {
+  padding-top: 100px;
+}
+
+.hero__section {
+  padding: 160px 860px 330px 60px;
+}
+
+.hero__container {
+  background-image: url('../assets/img/bg.jpg');
+  background-position: center -90px;
+  background-repeat: no-repeat;
+}
+
+.title__container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.title {
+  margin: 0;
+  margin-bottom: 10px;
+
+  font-family: "MerriweatherBold";
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 120px;
+  color: #ffffff;
+  text-align: left;
+}
+
+.title_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 60px;
+
+  font-size: 40px;
+  line-height: 80px;
+  color: #bdae82;
+}
+
+.title_center::before,
+.title_center::after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  
+  background-color: #bdae82;
+}
+
+.title_center::before {
+  margin-right: 21px;
+}
+
+.title_center::after {
+  margin-left: 21px;
+}
+
+.hero__text {
+  margin-bottom: 25px;
+}
+
+.button {
+  width: 220px;
+  height: 55px;
+
+  line-height: 40px;
+  background-color: #bdae82;
+  border-width: 0;
+
+  transition: 0.7s;
+}
+
+.button:hover {
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.skills {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.skills__item {
+  width: 320px;
+  padding: 100px 19px 10px;
+
+  text-align: center;
+
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.skills__item:nth-child(1) {
+  background-image: url("../assets/svg/camera.svg");
+  background-size: 62px 50px;
+}
+
+.skills__item:nth-child(2) {
+  background-image: url("../assets/svg/video.svg");
+  background-size: 60px 50px;
+}
+
+.skills__item:nth-child(3) {
+  background-image: url("../assets/svg/image.svg");
+  background-size: 66px 50px;
+}
+
+.skills__item:nth-child(4) {
+  background-image: url("../assets/svg/mic.svg");
+  background-size: 32px 50px;
+}
+
+.text_bold {
+  padding-bottom: 2px;
+
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.text_small {
+  margin-bottom: 0;
+
+  font-size: 18px;
+  line-height: 36px;
+}
+
+.button__container {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 60px;
+}
+
+.button_no-active {
+  color: #bdae82;
+
+  background-color: transparent;
+  border: 2px solid #bdae82;
+
+  transition: 0.7s;
+}
+
+.button_no-active:hover {
+  color: #ffffff;
+}
+
+.gallery__container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.video {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video__button {
+  position: absolute;
+
+  background-color: transparent;
+  border: none;
+}
+
+.video__icon {
+  display: block;
+  width: 130px;
+  height: 130px;
+}
+
+.price__section {
+  padding-bottom: 100px;
+}
+
+.price__card {
+  padding: 40px 0;
+  width: 450px;
+
+  text-align: center;
+
+  border: 3px solid #bdae82;
+}
+
+.title_middle {
+  margin-bottom: 20px;
+
+  font-size: 28px;
+  line-height: 56px;
+  text-align: center;
+}
+
+.price__dollars {
+  margin-bottom: 20px;
+
+  font-size: 24px;
+  line-height: 48px;
+  color: #bdae82;
+  text-align: center;
+}
+
+.price__item {
+  display: block;
+}
+
+.price__item:nth-child(7) {
+  margin-bottom: 40px;
+}
+
+.contacts__section {
+  padding-top: 60px;
+  padding-bottom: 195px;
+}
+
+.contacts__container {
+  background: url('../assets/img/contacts.jpg');
+  background-size: auto 700px;
+  background-position: center center;
+}
+
+.contacts__block {
+  width: 450px;
+  margin-left: auto;
+}
+
+.contacts__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.title_right {
+  margin-bottom: 40px;
+
+  font-size: 40px;
+  line-height: 80px;
+  color: #bdae82;
+}
+
+.contacts__entry-field {
+  margin-bottom: 19px;
+  padding: 2px 18px;
+  
+  color: #bdae82;
+  line-height: 40px;
+  
+  background-color: transparent;
+  border: 3px solid #bdae82;
+
+  outline: none;
+}
+
+.contacts__entry-field_big {
+  margin-bottom: 31px;
+  height: 100px;
+
+  resize: none;
+}
+
+::placeholder {
+  font-family: inherit;
+  color: #bdae82;
+  font-size: 20px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: #bdae82;
+  transition: background-color 0s ease-in-out 9000s;
+}
+
