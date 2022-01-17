@@ -40,9 +40,11 @@ html {
 
 .header__container {
   display: flex;
+
   background: url("../assets/img/bg.jpg");
-  background-repeat: no-repeat;
+  background-size: cover;
   background-position: center 0;
+  background-repeat: no-repeat;
 }
 
 .container {
@@ -58,6 +60,7 @@ html {
 }
 
 .icon:hover {
+  cursor: pointer;
   fill: #bdae82;
 }
 
@@ -154,6 +157,7 @@ html {
 
 .hero__container {
   background-image: url('../assets/img/bg.jpg');
+  background-size: cover;
   background-position: center -90px;
   background-repeat: no-repeat;
 }
@@ -277,6 +281,7 @@ html {
 .button__container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 5px;
   margin-bottom: 60px;
 }
@@ -414,11 +419,4 @@ html {
   font-size: 20px;
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  -webkit-text-fill-color: #bdae82;
-  transition: background-color 0s ease-in-out 9000s;
-}
 
