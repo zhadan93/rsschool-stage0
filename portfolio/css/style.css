@@ -175,7 +175,7 @@ html {
   text-align: left;
 }
 
-.section__title {
+.title_center {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -187,8 +187,8 @@ html {
   color: #bdae82;
 }
 
-.section__title::before,
-.section__title::after {
+.title_center::before,
+.title_center::after {
   content: '';
   width: 100%;
   height: 2px;
@@ -196,11 +196,11 @@ html {
   background-color: #bdae82;
 }
 
-.section__title::before {
+.title_center::before {
   margin-right: 21px;
 }
 
-.section__title::after {
+.title_center::after {
   margin-left: 21px;
 }
 
@@ -357,5 +357,68 @@ html {
 
 .price__item:nth-child(7) {
   margin-bottom: 40px;
+}
+
+.contacts__section {
+  padding-top: 60px;
+  padding-bottom: 195px;
+}
+
+.contacts__container {
+  background: url('../assets/img/contacts.jpg');
+  background-size: auto 700px;
+  background-position: center center;
+}
+
+.contacts__block {
+  width: 450px;
+  margin-left: auto;
+}
+
+.contacts__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.title_right {
+  margin-bottom: 40px;
+
+  font-size: 40px;
+  line-height: 80px;
+  color: #bdae82;
+}
+
+.contacts__entry-field {
+  margin-bottom: 19px;
+  padding: 2px 18px;
+  
+  color: #bdae82;
+  line-height: 40px;
+  
+  background-color: transparent;
+  border: 3px solid #bdae82;
+
+  outline: none;
+}
+
+.contacts__entry-field_big {
+  margin-bottom: 31px;
+  height: 100px;
+
+  resize: none;
+}
+
+::placeholder {
+  font-family: inherit;
+  color: #bdae82;
+  font-size: 20px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: #bdae82;
+  transition: background-color 0s ease-in-out 9000s;
 }
 

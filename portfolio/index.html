@@ -9,14 +9,17 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
+
   <body class="page">
+
     <header class="header">
-      <div class="container container_space-between header__container">  
+      <div class="container container_space-between header__container">    
         <a href="#" class="logo">
           <svg class="icon logo__icon">
             <use xlink:href="assets/svg/sprite.svg#logo"></use>
           </svg>
         </a>
+
         <nav class="nav">
           <ul class="nav__list">
             <li class="nav__item"><a href="#skills" class="link nav__link">Skills</a></li>
@@ -26,6 +29,7 @@
             <li class="nav__item"><a href="#contacts" class="link nav__link">Contacts</a></li>
           </ul>
         </nav>
+
         <div class="lang header__lang">
           <a href="#" class="link lang__link lang__link_active">en</a> / <a href="#" class="link lang__link">ru</a>
         </div>
@@ -33,6 +37,7 @@
     </header>
 
     <main class="main">
+      
       <div class="container hero__container">
         <section class="section hero__section">
           <h1 class="title">Alexa Rise</h1>
@@ -45,7 +50,7 @@
       <div class="container">
         <section class="section" id="skills">
           <div class="title__container">
-            <h2 class="title section__title">Skills</h2>
+            <h2 class="title title_center">Skills</h2>
           </div>
           <div class="skills">
             <div class="skills__item">
@@ -66,10 +71,12 @@
             </div>
           </div>
         </section>
+      </div>
 
+      <div class="container">
         <section class="section" id="portfolio">
           <div class="title__container">
-            <h2 class="title section__title">Portfolio</h2>
+            <h2 class="title title_center">Portfolio</h2>
           </div>
           <div class="button__container">
             <button class="button button_no-active">Winter</button>
@@ -88,9 +95,12 @@
                 width="450" height="560">
           </div>
         </section>
+      </div>
+
+      <div class="container">
         <section class="section" id="video">
           <div class="title__container">
-            <h2 class="title section__title">Video</h2>
+            <h2 class="title title_center">Video</h2>
           </div>
           <div class="video">
             <img src="assets/img/video-player.jpg" alt="Wedding video poster">
@@ -101,9 +111,12 @@
             </button>
           </div>
         </section>
+      </div>
+
+      <div class="container">
         <section class="section price__section" id="price">
           <div class="title__container">
-            <h2 class="title section__title">Price</h2>
+            <h2 class="title title_center">Price</h2>
           </div>
           <div class="gallery__container">
             <div class="price__card">
@@ -141,16 +154,16 @@
       </div>
 
       <div class="container contacts__container">
-        <section class="section" id="contacts">
-          <div class="title__container">
-            <h2 class="title">Contact me</h2>
+        <section class="section contacts__section" id="contacts">
+          <div class="contacts__block">
+            <h2 class="title title_right">Contact me</h2>
+            <form class="contacts__form" action="">
+              <input class="contacts__entry-field" type="email" placeholder="E-mail">
+              <input class="contacts__entry-field" type="tel" placeholder="Phone">
+              <textarea class="contacts__entry-field contacts__entry-field_big" placeholder="Message"></textarea>
+              <button class="button">Send message</button>
+            </form>
           </div>
-          <form>
-            <input type="email" placeholder="E-mail">
-            <input type="tel" placeholder="Phone">
-            <textarea placeholder="Message"></textarea>
-            <button>Send message</button>
-          </form>
         </section>
       </div>
     </main>
@@ -162,7 +175,9 @@
           <div class="footer__text">2022</div>
           <a href="https://github.com/zhadan93" class="link github">github</a>
         </div>
+
         <a href="https://rs.school/js-stage0/" class="link">Rolling Scopes School</a>
+
         <ul class="footer__list">
           <li class="footer__item">
             <a href="#" class="footer__link">
