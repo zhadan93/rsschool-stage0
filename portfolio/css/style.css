@@ -15,6 +15,12 @@
 }
 
 @font-face {
+  font-family: "MerriweatherRegular";
+  src: url("../assets/fonts/MerriweatherRegular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
   font-family: "Inter";
   src: url("../assets/fonts/InterVariableFont.ttf");
 }
@@ -132,7 +138,9 @@ html {
 }
 
 .hero__section {
-  padding: 160px 860px 330px 60px;
+  height: 820px;
+  padding-top: 160px;
+  padding-left: 60px;
 }
 
 .hero__container {
@@ -424,4 +432,43 @@ html {
 
 .github {
   padding-right: 13px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --font1: 32px;
+    --font2: 32px;
+    --padding: 0;
+  }
+
+  .page {
+    line-height: 24.2px;
+  }
+
+  .hero__section {
+    height: 500px;
+    padding-top: 78px;
+    padding-left: 60px;
+  }
+  
+  .hero__container {
+    background-position: -5px -120px;
+    background-size: auto 620px;
+  }
+
+  .hero__content {
+    width: 420px;
+  }
+
+  .title_big {
+    margin-bottom: 20px;
+  
+    font-family: "MerriweatherRegular";
+    line-height: 64px;
+    font-weight: 400;
+  } 
+
+  .hero__text {
+    margin-bottom: 60px;
+  }
 }
