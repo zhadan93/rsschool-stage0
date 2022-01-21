@@ -263,14 +263,12 @@ html {
   background-size: 32px 50px;
 }
 
-.text_bold {
-  padding-bottom: 2px;
-
+.skills__text_bold {
   font-weight: 700;
   letter-spacing: 0.5px;
 }
 
-.text_small {
+.skills__text_small {
   margin-bottom: 0;
 
   font-size: 18px;
@@ -469,6 +467,10 @@ html {
     width: 420px;
   }
 
+  .title__container {
+    width: 47.5%;
+  }
+
   .title {
     line-height: 64px;
   }
@@ -482,11 +484,43 @@ html {
   } 
 
   .title_center {
+    margin-bottom: 50px;
     line-height: 80px;
   }
 
   .hero__text {
     margin-bottom: 60px;
+  }
+
+  .skills__section {
+    padding-bottom: 13px;
+  }
+
+  .skills {
+    padding: 0 20px 27px;
+    row-gap: 36px;
+    justify-content: space-evenly;
+  }
+
+  .skills__item {
+    width: 300px;
+    padding: 80px 10px 40px;
+  
+  }
+
+  .skills__text_bold {
+    line-height: 40px;
+  }
+
+  .skills__text_small {
+    margin-top: 21px;
+
+    line-height: 21.78px;
+  }
+
+  .video__icon {
+    width: 65px;
+    height: 65px;
   }
 
   .contacts__container {
@@ -512,7 +546,7 @@ html {
   .footer__container {
     display: flex;
     height: 190px;
-    padding-top: 16px;
+    padding-top: 14px;
     flex-direction: column;
     justify-content: flex-start;
   }
