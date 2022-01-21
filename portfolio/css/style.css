@@ -268,7 +268,7 @@ html {
   letter-spacing: 0.5px;
 }
 
-.skills__text_small {
+.text_small {
   margin-bottom: 0;
 
   font-size: 18px;
@@ -342,6 +342,7 @@ html {
 
   font-size: 28px;
   line-height: 56px;
+  color: var(--color-white);
   text-align: center;
 }
 
@@ -488,6 +489,10 @@ html {
     line-height: 80px;
   }
 
+  .title_middle {
+    line-height: 56px;
+  }
+
   .hero__text {
     margin-bottom: 60px;
   }
@@ -526,6 +531,22 @@ html {
   .video__icon {
     width: 65px;
     height: 65px;
+  }
+
+  .price__section {
+    padding-bottom: 80px;
+  }
+
+  .gallery__container {
+    gap: 50px;
+  }
+
+  .price__card {
+    width: 420px;
+  }
+
+  .price__dollars {
+    line-height: 48px;
   }
 
   .contacts__container {
