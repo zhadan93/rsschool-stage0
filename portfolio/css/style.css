@@ -134,19 +134,51 @@ html {
 
 .humburger {
   display: none;
+  flex-direction: column;
+  justify-content: center;
   width: 50px;
+  height: 50px; 
+}
+
+.humburger:hover {
+  cursor: pointer;
+}
+
+.humburger:hover .line {
+  background-color: var(--color-gold);
 }
 
 .line {
   display: block;
+  width: 100%;
   height: 3px;
   margin-bottom: 10px;
 
   background-color: var(--color-white);
+
+  transition: all 0.5s ease-in-out;
 }
 
 .line:last-child {
   margin-bottom: 0;
+}
+
+.open .line:nth-child(2){
+  opacity: 0;
+}
+
+.open .line {
+  width: 61px;
+  height: 2px;
+  margin-left: -5px;
+}
+
+.open .line:nth-child(1){
+  transform: translateY(12px) rotate(45deg);
+}
+
+.open .line:nth-child(3){
+  transform: translateY(-12px) rotate(-45deg);
 }
 
 .main {
@@ -483,7 +515,7 @@ html {
   }
 
   .humburger {
-    display: block;
+    display: flex;
   }
 
   .section {

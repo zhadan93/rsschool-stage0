@@ -1,3 +1,9 @@
+const humburger = document.querySelector('.humburger');
+
+humburger.addEventListener('click', function() {
+   this.classList.toggle('open');
+});
+
 console.log(`Самооценка за задание 110 баллов
 
 1. Вёрстка валидная +10
