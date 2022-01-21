@@ -518,6 +518,11 @@ html {
     line-height: 21.78px;
   }
 
+  .button__container {
+    width: 445px;
+    margin: 0 auto 60px;
+  }
+
   .video__icon {
     width: 65px;
     height: 65px;
