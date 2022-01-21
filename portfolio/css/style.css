@@ -132,6 +132,23 @@ html {
   color: var(--color-gold);
 }
 
+.humburger {
+  display: none;
+  width: 50px;
+}
+
+.line {
+  display: block;
+  height: 3px;
+  margin-bottom: 10px;
+
+  background-color: var(--color-white);
+}
+
+.line:last-child {
+  margin-bottom: 0;
+}
+
 .main {
  margin-bottom: auto;
 }
@@ -447,6 +464,26 @@ html {
 
   .page {
     line-height: 24.2px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .header__container {
+    padding: 0 60px;
+
+    background-position: -5px -30px;
+    background-size: auto 620px;
+  }
+
+  .header__lang {
+    margin-left: auto;
+    margin-right: 20px;
+  }
+
+  .humburger {
+    display: block;
   }
 
   .section {
