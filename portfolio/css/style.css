@@ -354,7 +354,8 @@ html {
   color: var(--color-white);
 }
 
-.gallery__container {
+.gallery__container,
+.price__container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -641,6 +642,16 @@ html {
     margin: 0 auto 60px;
   }
 
+  .video {
+    height: 418px;
+  }
+
+  .video__poster {
+    height: 438px;
+    margin-top: 3px;
+    margin-left: 42px;
+  }
+
   .video__icon {
     width: 65px;
     height: 65px;
@@ -650,7 +661,7 @@ html {
     padding-bottom: 80px;
   }
 
-  .gallery__container {
+  .price__container {
     gap: 50px;
   }
 
