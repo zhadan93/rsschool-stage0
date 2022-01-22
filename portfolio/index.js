@@ -1,8 +1,19 @@
 const humburger = document.querySelector('.humburger');
+const navMenu = document.querySelector('.nav');
 
-humburger.addEventListener('click', function() {
-   this.classList.toggle('open');
-});
+function closeMenu() {
+   humburger.classList.toggle('open');
+   navMenu.classList.toggle('open');
+}
+
+function closeMenuWithLink(event) {
+  if (event.target.classList.contains('nav__link')) closeMenu();
+}
+
+humburger.addEventListener('click', closeMenu);
+
+navMenu.addEventListener('click', closeMenuWithLink);
+
 
 console.log(`Самооценка за задание 110 баллов
 
