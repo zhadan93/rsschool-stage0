@@ -138,6 +138,8 @@ html {
 }
 
 .humburger {
+  z-index: 20;
+  
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -171,7 +173,7 @@ html {
 .open .line {
   width: 61px;
   height: 2px;
-  margin-left: -5px;
+  margin-left: -9px;
 }
 
 .open .line:nth-child(2){
@@ -529,7 +531,6 @@ html {
   }
 
   .humburger {
-    z-index: 20;
     display: flex;
   }
 
@@ -541,7 +542,7 @@ html {
     width: 620px;
     height: 100vh;
     padding-top: 134px;
-    padding-left: 127px;
+    padding-left: 97px;
     
     background-color: var(--color-black);
 
@@ -624,7 +625,6 @@ html {
   .skills__item {
     width: 300px;
     padding: 80px 10px 40px;
-  
   }
 
   .skills__text_bold {
