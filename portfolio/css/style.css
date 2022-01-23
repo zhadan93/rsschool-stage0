@@ -82,6 +82,8 @@ html {
   background: url("../assets/img/bg.jpg");
   background-position: center 0;
   background-repeat: no-repeat;
+
+  transition: 0.7s;
 }
 
 .icon {
@@ -730,3 +732,19 @@ html {
   }
 }
 
+@media (max-width: 620px) {
+  .nav {
+    width: 100%;
+  }
+}
+
+@media (max-width: 426px) {
+  .header__container {
+    padding: 0 20px;
+  }
+
+  .nav {
+    padding-left: 47px;
+  }
+
+}
