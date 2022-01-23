@@ -47,6 +47,17 @@ html {
   background-color: var(--color-black);
 }
 
+.shadow_active {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .page__container {
   position: relative;
 
@@ -151,6 +162,10 @@ html {
   cursor: pointer;
 }
 
+.humburger.open {
+  margin-right: 4px;
+}
+
 .humburger:hover .line {
   background-color: var(--color-gold);
 }
@@ -173,7 +188,7 @@ html {
 .open .line {
   width: 61px;
   height: 2px;
-  margin-left: -9px;
+  margin-left: -5px;
 }
 
 .open .line:nth-child(2){
@@ -538,6 +553,7 @@ html {
     position: absolute;
     top: 0;
     right: -620px;
+    z-index: 10;
     
     width: 620px;
     height: 100vh;
