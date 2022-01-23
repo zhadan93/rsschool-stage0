@@ -65,7 +65,7 @@ html {
 }
 
 .container {
-  max-width: 1440px;
+  /*max-width: 1440px;*/
   margin: 0 auto;
   padding: 0 var(--padding);
 }
@@ -76,12 +76,13 @@ html {
   align-items: center;
 }
 
+.header {
+  position: absolute;
+  width: 100%
+}
+
 .header__container {
   height: 90px;
-
-  background: url("../assets/img/bg.jpg");
-  background-position: center 0;
-  background-repeat: no-repeat;
 
   transition: 0.7s;
 }
@@ -213,20 +214,22 @@ html {
   padding-top: 100px;
 }
 
-.hero__section {
-  height: 820px;
-  padding-top: 160px;
-  padding-left: 60px;
-}
-
 .hero__container {
   background-image: url('../assets/img/bg.jpg');
-  background-position: center -90px;
+  background-position: left center;
   background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero__section {
+  min-height: 500px;
+  padding-top: 17.9%;
+  padding-left: 60px;
+  padding-bottom: 23.5%; 
 }
 
 .hero__content {
- width: 500px;
+ max-width: 500px;
  padding-right: 30px;
 }
 
@@ -524,6 +527,14 @@ html {
   padding-right: 13px;
 }
 
+@media (max-width: 1440px) {
+  .skills {
+    padding: 0 20px 27px;
+    row-gap: 36px;
+    justify-content: space-evenly;
+  }
+}
+
 @media (max-width: 768px) {
   :root {
     --font1: 32px;
@@ -537,9 +548,6 @@ html {
 
   .header__container {
     padding: 0 60px;
-
-    background-position: -5px -30px;
-    background-size: auto 620px;
   }
 
   .header__lang {
@@ -587,18 +595,22 @@ html {
   }
 
   .hero__section {
-    height: 500px;
-    padding-top: 78px;
+    height: 590px;
+    padding-top: 21.8%;
     padding-left: 60px;
   }
   
   .hero__container {
-    background-position: -5px -120px;
+    background-position: -5px -30px;
     background-size: auto 620px;
   }
 
   .hero__content {
-    width: 420px;
+    max-width: 420px;
+  }
+
+  .hero__text {
+    margin-bottom: 60px;
   }
 
   .title__container {
@@ -624,10 +636,6 @@ html {
 
   .title_middle {
     line-height: 56px;
-  }
-
-  .hero__text {
-    margin-bottom: 60px;
   }
 
   .skills__section {
@@ -656,7 +664,7 @@ html {
   }
 
   .button__container {
-    width: 445px;
+    justify-content: center;
     margin: 0 auto 60px;
   }
 
@@ -738,7 +746,7 @@ html {
   }
 }
 
-@media (max-width: 426px) {
+@media (max-width: 480px) {
   .header__container {
     padding: 0 20px;
   }
@@ -747,4 +755,13 @@ html {
     padding-left: 47px;
   }
 
+  .hero__section {
+    padding-top: 104px;
+    padding-left: 40px;  
+  }
+
+  .gallery__img {
+    width: calc(100% - 40px);
+    height: auto;
+  }
 }
