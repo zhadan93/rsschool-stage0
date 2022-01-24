@@ -389,31 +389,35 @@ html {
 
 .video {
   position: relative;
-  height: 705px;
-
+  max-height: 705px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 
   overflow: hidden;
 }
 
 .video__poster {
+  width: calc(100% + 44px);
+  height: auto;
   margin-top: -2px;
-  margin-left: -1px;
+  margin-right: 4px;
 }
 
 .video__button {
   position: absolute;
-
+  
+  display: flex;
+  width: 100%;
+  justify-content: center;
   background-color: transparent;
   border: none;
 }
 
 .video__icon {
   display: block;
-  width: 130px;
-  height: 130px;
+  width: 9.4%;
+  height: 9.4%;
 }
 
 .price__section {
@@ -670,18 +674,12 @@ html {
   }
 
   .video {
-    height: 418px;
-  }
-
-  .video__poster {
-    height: 438px;
-    margin-top: 3px;
-    margin-left: 42px;
+    max-height: 418px;
   }
 
   .video__icon {
-    width: 65px;
-    height: 65px;
+    width: 8.6%;
+    height: 8.6%;
   }
 
   .price__section {
