@@ -456,15 +456,16 @@ html {
 }
 
 .contacts__section {
+  min-height: 600px;
   padding-top: 60px;
-  padding-bottom: 195px;
+  padding-bottom: 13.9%;
 }
 
 .contacts__container {
   background: url('../assets/img/contacts.jpg');
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: auto 700px;
+  background-size: cover;
 }
 
 .contacts__block {
@@ -699,20 +700,15 @@ html {
     line-height: 48px;
   }
 
-  .contacts__container {
-    background-size: auto 600px;
-  }
-
   .contacts__section {
     padding-top: 60px;
-    padding-bottom: 112px;
   }
   
   .contacts__block {
     display: flex;
+    margin: 0 auto;
     flex-direction: column;
     align-items: center;
-    margin: 0 auto;
   }
 
   .contacts__form {
@@ -770,6 +766,10 @@ html {
   }
 
   .price__card {
+    width: calc(100% - 40px);
+  }
+
+  .contacts__block {
     width: calc(100% - 40px);
   }
 }
