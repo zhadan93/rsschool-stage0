@@ -5,7 +5,7 @@ const page = document.querySelector('.shadow');
 function closeMenu() {
    humburger.classList.toggle('open');
    navMenu.classList.toggle('open');
-   page.classList.toggle('shadow_active');
+   page.classList.toggle('open');
 }
 
 function closeMenuWithLink(event) {
