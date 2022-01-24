@@ -166,7 +166,9 @@ html {
 }
 
 .humburger.open {
-  margin-right: 4px;
+  position: fixed;
+  right: 58px;
+  top: 20px;
 }
 
 .humburger:hover .line {
@@ -212,6 +214,7 @@ html {
 
 .section {
   padding-top: 100px;
+  transition: 0.7s;
 }
 
 .hero__container {
@@ -231,6 +234,8 @@ html {
 .hero__content {
  max-width: 500px;
  padding-right: 30px;
+
+ transition: 0.7s;
 }
 
 .title__container {
@@ -317,6 +322,8 @@ html {
 
   background-position: center top;
   background-repeat: no-repeat;
+
+  transition: 0.7s;
 }
 
 .skills__item:nth-child(1) {
@@ -555,7 +562,7 @@ html {
   }
 
   .header__container {
-    padding: 0 60px;
+    padding: 0 64px 0 60px;
   }
 
   .header__lang {
@@ -563,12 +570,16 @@ html {
     margin-right: 20px;
   }
 
+  .lang__link:last-child {
+    margin-left: 9px;
+  }
+
   .humburger {
     display: flex;
   }
 
   .nav {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: -620px;
     z-index: 10;
@@ -648,6 +659,10 @@ html {
 
   .skills__section {
     padding-bottom: 13px;
+  }
+
+  .skills__title_center {
+    margin-bottom: 45px;
   }
 
   .skills__item {
@@ -743,6 +758,10 @@ html {
 @media (max-width: 480px) {
   .header__container {
     padding: 0 20px;
+  }
+
+  .humburger.open {
+    right: 18px;
   }
 
   .nav {
