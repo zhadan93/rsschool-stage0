@@ -397,8 +397,7 @@ html {
 }
 
 .price__card {
-  width: 32%;
-  min-width: 420px;
+  width: 450px;
   padding: 40px 0;
 
   text-align: center;
@@ -707,6 +706,10 @@ html {
     gap: 50px;
   }
 
+  .price__card {
+    width: 420px;
+  }
+
   .price__dollars {
     line-height: 48px;
   }
@@ -780,11 +783,13 @@ html {
     width: calc(100% - 40px);
   }
 
-  .price__card {
-    min-width: calc(100% - 60px);
-  }
-
   .contacts__block {
     width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 460px) {
+  .price__container {
+    padding: 0 20px;
   }
 }
