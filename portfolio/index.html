@@ -11,207 +11,220 @@
   </head>
 
   <body class="page">
-
-    <header class="header">
-      <div class="container container_space-between header__container">    
-        <a href="#" class="logo">
-          <svg class="icon logo__icon">
-            <use xlink:href="assets/svg/sprite.svg#logo"></use>
-          </svg>
-        </a>
-
-        <nav class="nav">
-          <ul class="nav__list">
-            <li class="nav__item"><a href="#skills" class="link nav__link">Skills</a></li>
-            <li class="nav__item"><a href="#portfolio" class="link nav__link">Portfolio</a></li>
-            <li class="nav__item"><a href="#video" class="link nav__link">Video</a></li>
-            <li class="nav__item"><a href="#price" class="link nav__link">Price</a></li>
-            <li class="nav__item"><a href="#contacts" class="link nav__link">Contacts</a></li>
-          </ul>
-        </nav>
-
-        <div class="lang header__lang">
-          <a href="#" class="link lang__link lang__link_active">en</a> / <a href="#" class="link lang__link">ru</a>
-        </div>
-      </div>
-    </header>
-
-    <main class="main">
+    <div class="page__container">
+      <div class="shadow"></div>
       
-      <div class="container hero__container">
-        <section class="section hero__section">
-          <div class="hero__content">
-            <h1 class="title title_big">Alexa Rise</h1>
-            <div class="hero__text">Save sincere emotions, romantic feelings and happy moments of life together 
-                with professional photographer Alexa Rise</div>
-            <button class="button">Hire me</button>
-          </div>
-        </section>
-      </div>
+      <header class="header">
+        <div class="container container_space-between header__container">    
+          <a href="#" class="logo">
+            <svg class="icon logo__icon">
+              <use xlink:href="assets/svg/sprite.svg#logo"></use>
+            </svg>
+          </a>
 
-      <div class="container">
-        <section class="section" id="skills">
-          <div class="title__container">
-            <h2 class="title title_center">Skills</h2>
-          </div>
-          <div class="skills">
-            <div class="skills__item">
-              <div class="text text_bold">Digital photography</div>
-              <p class="text text_small">High-quality photos in the studio and on the nature</p>
-            </div>
-            <div class="skills__item">
-              <div class="text text_bold">Video shooting</div>
-              <p class="text text_small">Capture your moments so that they always stay with you</p>
-            </div>
-            <div class="skills__item">
-              <div class="text text_bold">Retouch</div>
-              <p class="text text_small">I strive to make photography surpass reality</p>
-            </div>
-            <div class="skills__item">
-              <div class="text text_bold">Audio</div>
-              <p class="text text_small">Professional sounds recording<br>for video, advertising, portfolio</p>
-            </div>
-          </div>
-        </section>
-      </div>
+          <nav class="nav">
+            <ul class="nav__list">
+              <li class="nav__item"><a href="#skills" class="link nav__link">Skills</a></li>
+              <li class="nav__item"><a href="#portfolio" class="link nav__link">Portfolio</a></li>
+              <li class="nav__item"><a href="#video" class="link nav__link">Video</a></li>
+              <li class="nav__item"><a href="#price" class="link nav__link">Price</a></li>
+              <li class="nav__item"><a href="#contacts" class="link nav__link">Contacts</a></li>
+            </ul>
+          </nav>
 
-      <div class="container">
-        <section class="section" id="portfolio">
-          <div class="title__container">
-            <h2 class="title title_center">Portfolio</h2>
+          <div class="lang header__lang">
+            <a href="#" class="link lang__link lang__link_active">en</a> / <a href="#" class="link lang__link">ru</a>
           </div>
-          <div class="button__container">
-            <button class="button button_no-active">Winter</button>
-            <button class="button button_no-active">Spring</button>
-            <button class="button button_no-active">Summer</button>
-            <button class="button">Autumn</button>
-          </div>
-          <div class="gallery__container">
-            <img src="assets/img/young-couple.jpg" class="gallery__img" alt="Young couple in love in autumn" width="450" height="560">
-            <img src="assets/img/horse.jpg" class="gallery__img" alt="Horse in the forest in autumn" width="450" height="560">
-            <img src="assets/img/child.jpg" class="gallery__img" alt="Boy in green plush suit in autumn" width="450" height="560">
-            <img src="assets/img/forest.jpg" class="gallery__img" alt="Forest in autumn" width="450" height="560">
-            <img src="assets/img/elderly-couple.jpg" class="gallery__img" alt="Elderly couple in love in autumn" width="450"
-                height="560">
-            <img src="assets/img/girl-taking-pictures.jpg" class="gallery__img" alt="Girl taking pictures by the phone in autumn"
-                width="450" height="560">
-          </div>
-        </section>
-      </div>
 
-      <div class="container">
-        <section class="section" id="video">
-          <div class="title__container">
-            <h2 class="title title_center">Video</h2>
+          <div class="humburger">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
           </div>
-          <div class="video">
-            <img src="assets/img/video-player.jpg" alt="Wedding video poster">
-            <button class="video__button">
-              <svg class="icon video__icon">
-                <use xlink:href="assets/svg/sprite.svg#play"></use>
-              </svg>
-            </button>
-          </div>
-        </section>
-      </div>
+        </div>
+      </header>
 
-      <div class="container">
-        <section class="section price__section" id="price">
-          <div class="title__container">
-            <h2 class="title title_center">Price</h2>
-          </div>
-          <div class="gallery__container">
-            <div class="price__card">
-              <h3 class="title title_middle">Standard</h3>
-              <div class="title price__dollars">500 $</div>
-              <span class="price__item text_small">One location</span>
-              <span class="price__item text_small">120 photos in color</span>
-              <span class="price__item text_small">12 photos in retouch</span>
-              <span class="price__item text_small">Readiness 2-3 weeks</span>
-              <span class="price__item text_small">Make up, visage</span>
-              <button class="button">Order shooting</button>              
-            </div> 
-            <div class="price__card">
-              <h3 class="title title_middle">Premium</h3>
-              <div class="title price__dollars">700 $</div>
-              <span class="price__item text_small">One or two locations</span>
-              <span class="price__item text_small">200 photos in color</span>
-              <span class="price__item text_small">20 photos in retouch</span>
-              <span class="price__item text_small">Readiness 1-2 weeks</span>
-              <span class="price__item text_small">Make up, visage</span>
-              <button class="button">Order shooting</button>
+      <main class="main">
+        
+        <div class="container hero__container">
+          <section class="section hero__section">
+            <div class="hero__content">
+              <h1 class="title title_big">Alexa Rise</h1>
+              <div class="hero__text">Save sincere emotions, romantic feelings and happy moments of life together 
+                  with professional photographer Alexa Rise</div>
+              <button class="button">Hire me</button>
             </div>
-            <div class="price__card">
-              <h3 class="title title_middle">Gold</h3>
-              <div class="title price__dollars">1000 $</div>
-              <span class="price__item text_small">Three locations or more</span>
-              <span class="price__item text_small">300 photos in color</span>
-              <span class="price__item text_small">50 photos in retouch</span>
-              <span class="price__item text_small">Readiness 1 week</span>
-              <span class="price__item text_small">Make up, visage, hairstyle</span>
-              <button class="button">Order shooting</button>              
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <div class="container contacts__container">
-        <section class="section contacts__section" id="contacts">
-          <div class="contacts__block">
-            <h2 class="title">Contact me</h2>
-            <form class="contacts__form" action="#">
-              <input class="contacts__entry-field" type="email" placeholder="E-mail">
-              <input class="contacts__entry-field" type="tel" placeholder="Phone">
-              <textarea class="contacts__entry-field contacts__entry-field_big" placeholder="Message"></textarea>
-              <button class="button">Send message</button>
-            </form>
-          </div>
-        </section>
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="container container_space-between footer__container">
-        <div class="container_space-between">
-          <div class="footer__text">©</div>
-          <div class="footer__text">2022</div>
-          <a href="https://github.com/zhadan93" class="link github">github</a>
+          </section>
         </div>
 
-        <a href="https://rs.school/js-stage0/" class="link">Rolling Scopes School</a>
+        <div class="container">
+          <section class="section skills__section" id="skills">
+            <div class="title__container">
+              <h2 class="title title_center skills__title_center">Skills</h2>
+            </div>
+            <div class="skills">
+              <div class="skills__item">
+                <div class="skills__text_bold">Digital photography</div>
+                <p class="text_small skills__text_small">High-quality photos in the studio and on the nature</p>
+              </div>
+              <div class="skills__item">
+                <div class="skills__text_bold">Video shooting</div>
+                <p class="text_small skills__text_small">Capture your moments so that they always stay with you</p>
+              </div>
+              <div class="skills__item">
+                <div class="skills__text_bold">Retouch</div>
+                <p class="text_small skills__text_small">I strive to make photography surpass reality</p>
+              </div>
+              <div class="skills__item">
+                <div class="skills__text_bold">Audio</div>
+                <p class="text_small skills__text_small">Professional sounds recording<br>for video, advertising, portfolio</p>
+              </div>
+            </div>
+          </section>
+        </div>
 
-        <ul class="footer__list">
-          <li class="footer__item">
-            <a href="#" class="footer__link">
-              <svg class="icon footer__icon">
-                <use xlink:href="assets/svg/sprite.svg#inst"></use>
-              </svg>
-            </a>
-          </li>
-          <li class="footer__item">
-            <a href="#" class="footer__link">
-              <svg class="icon footer__icon">
-                <use xlink:href="assets/svg/sprite.svg#fb"></use>
-              </svg>
-            </a>
-          </li>
-          <li class="footer__item">
-            <a href="#" class="footer__link">
-              <svg class="icon footer__icon">
-                <use xlink:href="assets/svg/sprite.svg#tw"></use>
-              </svg>
-            </a>
-          </li>
-          <li class="footer__item">
-            <a href="#" class="footer__link">
-              <svg class="icon footer__icon">
-                <use xlink:href="assets/svg/sprite.svg#pinterest"></use>
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </footer>
+        <div class="container">
+          <section class="section" id="portfolio">
+            <div class="title__container">
+              <h2 class="title title_center">Portfolio</h2>
+            </div>
+            <div class="button__container portfolio__button">
+              <div class="button__container">
+                <button class="button button_no-active">Winter</button>
+                <button class="button button_no-active">Spring</button>
+              </div>
+              <div class="button__container">
+                <button class="button button_no-active">Summer</button>
+                <button class="button">Autumn</button>
+              </div>
+            </div>
+            <div class="gallery__container">
+              <img src="assets/img/young-couple.jpg" class="gallery__img" alt="Young couple in love in autumn" width="450" height="560">
+              <img src="assets/img/horse.jpg" class="gallery__img" alt="Horse in the forest in autumn" width="450" height="560">
+              <img src="assets/img/child.jpg" class="gallery__img" alt="Boy in green plush suit in autumn" width="450" height="560">
+              <img src="assets/img/forest.jpg" class="gallery__img" alt="Forest in autumn" width="450" height="560">
+              <img src="assets/img/elderly-couple.jpg" class="gallery__img" alt="Elderly couple in love in autumn" width="450"
+                  height="560">
+              <img src="assets/img/girl-taking-pictures.jpg" class="gallery__img" alt="Girl taking pictures by the phone in autumn"
+                  width="450" height="560">
+            </div>
+          </section>
+        </div>
+
+        <div class="container">
+          <section class="section" id="video">
+            <div class="title__container">
+              <h2 class="title title_center">Video</h2>
+            </div>
+            <div class="video">
+              <img src="assets/img/video-player.jpg" class="video__poster" alt="Wedding video poster" width="1400" height="750">
+              <button class="video__button">
+                <svg class="icon video__icon">
+                  <use xlink:href="assets/svg/sprite.svg#play"></use>
+                </svg>
+              </button>
+            </div>
+          </section>
+        </div>
+
+        <div class="container">
+          <section class="section price__section" id="price">
+            <div class="title__container">
+              <h2 class="title title_center">Price</h2>
+            </div>
+            <div class="price__container">
+              <div class="price__card">
+                <h3 class="title title_middle">Standard</h3>
+                <div class="title price__dollars">500 $</div>
+                <span class="price__item text_small">One location</span>
+                <span class="price__item text_small">120 photos in color</span>
+                <span class="price__item text_small">12 photos in retouch</span>
+                <span class="price__item text_small">Readiness 2-3 weeks</span>
+                <span class="price__item text_small">Make up, visage</span>
+                <button class="button">Order shooting</button>              
+              </div> 
+              <div class="price__card">
+                <h3 class="title title_middle">Premium</h3>
+                <div class="title price__dollars">700 $</div>
+                <span class="price__item text_small">One or two locations</span>
+                <span class="price__item text_small">200 photos in color</span>
+                <span class="price__item text_small">20 photos in retouch</span>
+                <span class="price__item text_small">Readiness 1-2 weeks</span>
+                <span class="price__item text_small">Make up, visage</span>
+                <button class="button">Order shooting</button>
+              </div>
+              <div class="price__card">
+                <h3 class="title title_middle">Gold</h3>
+                <div class="title price__dollars">1000 $</div>
+                <span class="price__item text_small">Three locations or more</span>
+                <span class="price__item text_small">300 photos in color</span>
+                <span class="price__item text_small">50 photos in retouch</span>
+                <span class="price__item text_small">Readiness 1 week</span>
+                <span class="price__item text_small">Make up, visage, hairstyle</span>
+                <button class="button">Order shooting</button>              
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="container contacts__container">
+          <section class="section contacts__section" id="contacts">
+            <div class="contacts__block">
+              <h2 class="title">Contact me</h2>
+              <form class="contacts__form" action="#">
+                <input class="contacts__entry-field" type="email" placeholder="E-mail">
+                <input class="contacts__entry-field" type="tel" placeholder="Phone">
+                <textarea class="contacts__entry-field contacts__entry-field_big" placeholder="Message"></textarea>
+                <button class="button">Send message</button>
+              </form>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container container_space-between footer__container">
+          <div class="container_space-between footer__author-block">
+            <div class="footer__text">©</div>
+            <div class="footer__text">2022</div>
+            <a href="https://github.com/zhadan93" class="link github">github</a>
+          </div>
+
+          <a href="https://rs.school/js-stage0/" class="link link__rs">Rolling Scopes School</a>
+
+          <ul class="footer__list">
+            <li class="footer__item">
+              <a href="#" class="link footer__link">
+                <svg class="icon footer__icon">
+                  <use xlink:href="assets/svg/sprite.svg#inst"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="link footer__link">
+                <svg class="icon footer__icon">
+                  <use xlink:href="assets/svg/sprite.svg#fb"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="link footer__link">
+                <svg class="icon footer__icon">
+                  <use xlink:href="assets/svg/sprite.svg#tw"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="link footer__link">
+                <svg class="icon footer__icon">
+                  <use xlink:href="assets/svg/sprite.svg#pinterest"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
     <script src="index.js"></script>
   </body>
 </html>
