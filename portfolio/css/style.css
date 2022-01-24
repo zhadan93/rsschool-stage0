@@ -65,7 +65,7 @@ html {
 }
 
 .container {
-  /*max-width: 1440px;*/
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0 var(--padding);
 }
@@ -357,10 +357,13 @@ html {
 
 .button__container {
   display: flex;
-  margin-bottom: 60px;
   justify-content: center;
   flex-wrap: wrap;
   gap: 5px;
+}
+
+.portfolio__button {
+  margin-bottom: 60px;
 }
 
 .button_no-active {
@@ -642,12 +645,6 @@ html {
     padding-bottom: 13px;
   }
 
-  .skills {
-    padding: 0 20px 27px;
-    row-gap: 36px;
-    justify-content: space-evenly;
-  }
-
   .skills__item {
     width: 300px;
     padding: 80px 10px 40px;
@@ -662,9 +659,12 @@ html {
 
     line-height: 21.78px;
   }
-
+  
   .button__container {
     justify-content: center;
+  }
+
+  .portfolio__button {
     margin: 0 auto 60px;
   }
 
@@ -763,5 +763,13 @@ html {
   .gallery__img {
     width: calc(100% - 40px);
     height: auto;
+  }
+
+  .button__container {
+    width: calc(100% - 40px);
+  }
+
+  .price__card {
+    width: calc(100% - 40px);
   }
 }
