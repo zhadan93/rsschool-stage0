@@ -578,7 +578,7 @@ html {
   .open .line:nth-child(3){
     transform: translateY(-12px) rotate(-45deg);
   }
-  
+
   .nav {
     position: fixed;
     top: 0;
@@ -783,11 +783,13 @@ html {
     width: calc(100% - 40px);
   }
 
-  .price__card {
-    width: calc(100% - 40px);
-  }
-
   .contacts__block {
     width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 460px) {
+  .price__container {
+    padding: 0 20px;
   }
 }
