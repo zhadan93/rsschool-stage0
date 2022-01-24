@@ -179,7 +179,7 @@ html {
 
 .section {
   padding-top: 100px;
-  transition: 0.7s;
+  transition: 0.4s linear;
 }
 
 .hero__container {
@@ -191,7 +191,7 @@ html {
 
 .hero__section {
   min-height: 500px;
-  padding-top: 17.9%;
+  padding-top: 250px;
   padding-left: 60px;
   padding-bottom: 23.5%; 
 }
@@ -199,8 +199,6 @@ html {
 .hero__content {
  max-width: 500px;
  padding-right: 30px;
-
- transition: 0.7s;
 }
 
 .title__container {
@@ -512,6 +510,12 @@ html {
     padding: 0 20px 27px;
     row-gap: 36px;
     justify-content: space-evenly;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero__section { 
+    padding-top: 22.1%;
   }
 }
 
