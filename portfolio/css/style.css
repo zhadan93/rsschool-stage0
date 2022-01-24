@@ -1,7 +1,23 @@
+:root {
+  --color-white: #ffffff;
+  --color-gold: #bdae82;
+  --color-black: #000000;
+  --font1: 60px;
+  --font2: 40px;
+  --font3: 20px;
+  --padding: 19px;
+}
+
 @font-face {
   font-family: "MerriweatherBold";
   src: url("../assets/fonts/MerriweatherBold.ttf");
   font-weight: 700;
+}
+
+@font-face {
+  font-family: "MerriweatherRegular";
+  src: url("../assets/fonts/MerriweatherRegular.ttf");
+  font-weight: 400;
 }
 
 @font-face {
@@ -18,50 +34,57 @@ html {
 }
 
 .page {
-  min-height: 100vh;
-
   display: flex;
+  min-height: 100vh;
   flex-direction: column;
   justify-content: space-between;
    
-
   font-family: "Inter";
-  font-size: 20px;
+  font-size: var(--font3);
   line-height: 40px;
-  color: #ffffff;
+  color: var(--color-white);
 
-  background-color: #000000;
+  background-color: var(--color-black);
 }
+
+.page__container {
+  position: relative;
+
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--padding);
+}
+
 .container_space-between {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.header__container {
-  display: flex;
-
-  background: url("../assets/img/bg.jpg");
-  background-size: cover;
-  background-position: center 0;
-  background-repeat: no-repeat;
+.header {
+  position: absolute;
+  width: 100%
 }
 
-.container {
-  width: 1440px;
-  margin: 0 auto;
-  padding: 0 19px;
+.header__container {
+  height: 90px;
+
+  transition: 0.7s;
 }
 
 .icon {
-  fill: #ffffff;
+  fill: var(--color-white);
 
   transition: 0.7s;
 }
 
 .icon:hover {
+  fill: var(--color-gold);
   cursor: pointer;
-  fill: #bdae82;
 }
 
 .logo__icon {
@@ -77,6 +100,7 @@ html {
 .nav__list,
 .footer__list {
   display: flex;
+  margin: 0;
   padding: 0px;
   
   list-style: none;
@@ -92,15 +116,15 @@ html {
 
 .link {
   line-height: 50px;
-  color: #ffffff;
-  text-decoration: none;
   font-weight: 400;
+  color: var(--color-white);
+  text-decoration: none;
 
   transition: 0.7s;
 }
 
 .link:hover {
-  color: #bdae82;
+  color: var(--color-gold);
 }
 
 .lang {
@@ -113,34 +137,40 @@ html {
 }
 
 .lang__link_active {
-  color: #bdae82
+  color: var(--color-gold);
 }
 
-.footer__container {
-  display: flex;
-  min-height: 150px;
+.humburger {
+  z-index: 20;
+  
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  width: 50px;
+  height: 50px; 
 }
 
-.footer__icon {
+.humburger:hover {
+  cursor: pointer;
+}
+
+.humburger:hover .line {
+  background-color: var(--color-gold);
+}
+
+.line {
   display: block;
-  width: 32px;
-  height: 32px;
+  width: 100%;
+  height: 3px;
+  margin-bottom: 10px;
+
+  background-color: var(--color-white);
+
+  transition: all 0.5s ease-in-out;
 }
 
-.footer__item {
-  padding-right: 20px;
-}
-
-.footer__item:last-child {
-  padding-right: 0;
-}
-
-.footer__text {
-  padding-right: 21px;
-}
-
-.github {
-  padding-right: 13px;
+.line:last-child {
+  margin-bottom: 0;
 }
 
 .main {
@@ -149,17 +179,28 @@ html {
 
 .section {
   padding-top: 100px;
-}
-
-.hero__section {
-  padding: 160px 860px 330px 60px;
+  transition: 0.7s;
 }
 
 .hero__container {
   background-image: url('../assets/img/bg.jpg');
-  background-size: cover;
-  background-position: center -90px;
+  background-position: left center;
   background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero__section {
+  min-height: 500px;
+  padding-top: 17.9%;
+  padding-left: 60px;
+  padding-bottom: 23.5%; 
+}
+
+.hero__content {
+ max-width: 500px;
+ padding-right: 30px;
+
+ transition: 0.7s;
 }
 
 .title__container {
@@ -169,35 +210,38 @@ html {
 
 .title {
   margin: 0;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
 
   font-family: "MerriweatherBold";
+  font-size: var(--font2);
+  line-height: 80px;
   font-weight: 700;
-  font-size: 60px;
-  line-height: 120px;
-  color: #ffffff;
-  text-align: left;
+  color: var(--color-gold);
 }
+
+.title_big {
+  margin-bottom: 10px;
+
+  font-size: var(--font1);
+  line-height: 120px;
+  color: var(--color-white);
+} 
 
 .title_center {
   display: flex;
+  margin-bottom: 60px;
   align-items: center;
   justify-content: center;
-
-  margin-bottom: 60px;
-
-  font-size: 40px;
-  line-height: 80px;
-  color: #bdae82;
 }
 
 .title_center::before,
 .title_center::after {
   content: '';
+
   width: 100%;
   height: 2px;
   
-  background-color: #bdae82;
+  background-color: var(--color-gold);
 }
 
 .title_center::before {
@@ -217,15 +261,16 @@ html {
   height: 55px;
 
   line-height: 40px;
-  background-color: #bdae82;
+
+  background-color: var(--color-gold);
   border-width: 0;
 
   transition: 0.7s;
 }
 
 .button:hover {
+  color: var(--color-white);
   cursor: pointer;
-  color: #ffffff;
 }
 
 .skills {
@@ -242,6 +287,8 @@ html {
 
   background-position: center top;
   background-repeat: no-repeat;
+
+  transition: 0.7s;
 }
 
 .skills__item:nth-child(1) {
@@ -264,9 +311,7 @@ html {
   background-size: 32px 50px;
 }
 
-.text_bold {
-  padding-bottom: 2px;
-
+.skills__text_bold {
   font-weight: 700;
   letter-spacing: 0.5px;
 }
@@ -278,28 +323,36 @@ html {
   line-height: 36px;
 }
 
+.skills__text_small {
+  margin-top: 21px;
+}
+
 .button__container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 5px;
+}
+
+.portfolio__button {
   margin-bottom: 60px;
 }
 
 .button_no-active {
-  color: #bdae82;
+  color: var(--color-gold);
 
   background-color: transparent;
-  border: 2px solid #bdae82;
+  border: 2px solid var(--color-gold);
 
   transition: 0.7s;
 }
 
 .button_no-active:hover {
-  color: #ffffff;
+  color: var(--color-white);
 }
 
-.gallery__container {
+.gallery__container,
+.price__container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -308,22 +361,35 @@ html {
 
 .video {
   position: relative;
+  max-height: 705px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+
+  overflow: hidden;
+}
+
+.video__poster {
+  width: calc(100% + 44px);
+  height: auto;
+  margin-top: -2px;
+  margin-right: 4px;
 }
 
 .video__button {
   position: absolute;
-
+  
+  display: flex;
+  width: 100%;
+  justify-content: center;
   background-color: transparent;
   border: none;
 }
 
 .video__icon {
   display: block;
-  width: 130px;
-  height: 130px;
+  width: 9.4%;
+  height: 9.4%;
 }
 
 .price__section {
@@ -331,12 +397,12 @@ html {
 }
 
 .price__card {
-  padding: 40px 0;
   width: 450px;
+  padding: 40px 0;
 
   text-align: center;
 
-  border: 3px solid #bdae82;
+  border: 3px solid var(--color-gold);
 }
 
 .title_middle {
@@ -344,6 +410,7 @@ html {
 
   font-size: 28px;
   line-height: 56px;
+  color: var(--color-white);
   text-align: center;
 }
 
@@ -352,8 +419,8 @@ html {
 
   font-size: 24px;
   line-height: 48px;
-  color: #bdae82;
   text-align: center;
+  color: var(--color-gold);
 }
 
 .price__item {
@@ -365,14 +432,16 @@ html {
 }
 
 .contacts__section {
+  min-height: 600px;
   padding-top: 60px;
-  padding-bottom: 195px;
+  padding-bottom: 13.9%;
 }
 
 .contacts__container {
   background: url('../assets/img/contacts.jpg');
-  background-size: auto 700px;
   background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .contacts__block {
@@ -382,41 +451,343 @@ html {
 
 .contacts__form {
   display: flex;
+  width: 100%;
   flex-direction: column;
 }
 
-.title_right {
-  margin-bottom: 40px;
-
-  font-size: 40px;
-  line-height: 80px;
-  color: #bdae82;
-}
-
 .contacts__entry-field {
+  width: 100%;
   margin-bottom: 19px;
   padding: 2px 18px;
   
-  color: #bdae82;
   line-height: 40px;
+  color: var(--color-gold);
   
-  background-color: transparent;
-  border: 3px solid #bdae82;
-
+  background: rgba(0, 0, 0, 0.5);
+  border: 3px solid var(--color-gold);
   outline: none;
 }
 
 .contacts__entry-field_big {
-  margin-bottom: 31px;
   height: 100px;
+  margin-bottom: 31px;
 
   resize: none;
 }
 
 ::placeholder {
   font-family: inherit;
-  color: #bdae82;
-  font-size: 20px;
+  font-size: var(--font3);
+  color: var(--color-gold);
 }
 
+.footer__container {
+  height: 150px;
+}
 
+.footer__icon {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+
+.footer__item {
+  padding: 9px 20px 9px 0;
+}
+
+.footer__item:last-child {
+  padding-right: 0;
+}
+
+.footer__text {
+  padding-right: 21px;
+}
+
+.github {
+  padding-right: 13px;
+}
+
+@media (max-width: 1440px) {
+  .skills {
+    padding: 0 20px 27px;
+    row-gap: 36px;
+    justify-content: space-evenly;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --font1: 32px;
+    --font2: 32px;
+    --padding: 0;
+  }
+
+  .page {
+    line-height: 24.2px;
+  }
+
+  .shadow.open {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    
+    z-index: 5;
+  
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .header__container {
+    padding: 0 64px 0 60px;
+  }
+
+  .header__lang {
+    margin-left: auto;
+    margin-right: 20px;
+  }
+
+  .lang__link:last-child {
+    margin-left: 9px;
+  }
+
+  .humburger {
+    display: flex;
+  }
+
+  .humburger.open {
+    position: fixed;
+    right: 62px;
+    top: 20px;
+  }
+
+  .open .line {
+    width: 61px;
+    height: 2px;
+    margin-left: -5px;
+  }
+  
+  .open .line:nth-child(2){
+    opacity: 0;
+  }
+  
+  .open .line:nth-child(1){
+    transform: translateY(12px) rotate(45deg);
+  }
+  
+  .open .line:nth-child(3){
+    transform: translateY(-12px) rotate(-45deg);
+  }
+  
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -620px;
+    z-index: 10;
+    
+    width: 620px;
+    height: 100vh;
+    padding-top: 134px;
+    padding-left: 97px;
+    
+    background-color: var(--color-black);
+
+    transition: 0.7s;
+  }
+
+  .nav__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .nav__link {
+    font-size: 35px;
+    line-height: 72.55px;
+  }
+
+  .nav.open {
+    right: 0;
+  }
+
+  .section {
+    padding-top: 80px;
+  }
+
+  .hero__section {
+    height: 590px;
+    padding-top: 21.8%;
+    padding-left: 60px;
+  }
+  
+  .hero__container {
+    background-position: -5px -30px;
+    background-size: auto 620px;
+  }
+
+  .hero__content {
+    max-width: 420px;
+  }
+
+  .hero__text {
+    margin-bottom: 60px;
+  }
+
+  .title__container {
+    width: 47.5%;
+  }
+
+  .title {
+    line-height: 64px;
+  }
+
+  .title_big {
+    margin-bottom: 20px;
+  
+    font-family: "MerriweatherRegular";
+    line-height: 64px;
+    font-weight: 400;
+  } 
+
+  .title_center {
+    margin-bottom: 50px;
+    line-height: 80px;
+  }
+
+  .title_middle {
+    line-height: 56px;
+  }
+
+  .skills__section {
+    padding-bottom: 13px;
+  }
+
+  .skills__title_center {
+    margin-bottom: 45px;
+  }
+
+  .skills__item {
+    width: 300px;
+    padding: 80px 10px 40px;
+  }
+
+  .skills__text_bold {
+    line-height: 40px;
+  }
+
+  .skills__text_small {
+    margin-top: 21px;
+
+    line-height: 21.78px;
+  }
+  
+  .button__container {
+    justify-content: center;
+  }
+
+  .portfolio__button {
+    margin: 0 auto 60px;
+  }
+
+  .video {
+    max-height: 418px;
+  }
+
+  .video__icon {
+    width: 8.6%;
+    height: 8.6%;
+  }
+
+  .price__section {
+    padding-bottom: 80px;
+  }
+
+  .price__container {
+    gap: 50px;
+  }
+
+  .price__card {
+    width: 420px;
+  }
+
+  .price__dollars {
+    line-height: 48px;
+  }
+
+  .contacts__section {
+    padding-top: 60px;
+  }
+  
+  .contacts__block {
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contacts__form {
+    align-items: center;
+  }
+
+  .footer__container {
+    display: flex;
+    height: 190px;
+    padding-top: 14px;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .footer__author-block {
+    margin-bottom: -10px;
+  }
+
+  .github {
+    padding-right: 0;
+  }
+
+  .link__rs {
+    margin-bottom: 6px;
+  }
+}
+
+@media (max-width: 620px) {
+  .nav {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .header__container {
+    padding: 0 20px;
+  }
+
+  .humburger.open {
+    right: 18px;
+  }
+
+  .nav {
+    padding-left: 47px;
+  }
+
+  .hero__section {
+    padding-top: 104px;
+    padding-left: 40px;  
+  }
+
+  .gallery__img {
+    width: calc(100% - 40px);
+    height: auto;
+  }
+
+  .button__container {
+    width: calc(100% - 40px);
+  }
+
+  .price__card {
+    width: calc(100% - 40px);
+  }
+
+  .contacts__block {
+    width: calc(100% - 40px);
+  }
+}
