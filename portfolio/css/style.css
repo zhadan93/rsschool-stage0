@@ -397,7 +397,8 @@ html {
 }
 
 .price__card {
-  width: 450px;
+  width: 32%;
+  min-width: 420px;
   padding: 40px 0;
 
   text-align: center;
@@ -578,7 +579,7 @@ html {
   .open .line:nth-child(3){
     transform: translateY(-12px) rotate(-45deg);
   }
-  
+
   .nav {
     position: fixed;
     top: 0;
@@ -706,10 +707,6 @@ html {
     gap: 50px;
   }
 
-  .price__card {
-    width: 420px;
-  }
-
   .price__dollars {
     line-height: 48px;
   }
@@ -784,7 +781,7 @@ html {
   }
 
   .price__card {
-    width: calc(100% - 40px);
+    min-width: calc(100% - 60px);
   }
 
   .contacts__block {
