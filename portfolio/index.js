@@ -40,6 +40,20 @@ galleryButtonContainer.addEventListener('click', event => {
    }
 });
 
+const seasons = ['autumn', 'spring', 'summer', 'winter'];
+
+function preloadPortfolioImages() {
+  seasons.forEach(season => {
+    for (let i = 1; i <= 6; i++) {
+      const img = new Image();
+      img.src = `assets/img/${season}/${i}.jpg`;
+    }
+  });
+  
+}
+
+preloadPortfolioImages();
+
 
 console.log(`Самооценка за задание 85 баллов
 
