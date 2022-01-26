@@ -149,6 +149,8 @@ html {
   color: var(--color-gold);
 
   transition: 0.7s;
+
+  cursor: pointer;
 }
 
 .humburger {
@@ -269,17 +271,24 @@ html {
   width: 220px;
   height: 55px;
 
+  color: var(--color-gold);
   line-height: 40px;
 
-  background-color: var(--color-gold);
-  border-width: 0;
-
+  background-color: transparent;
+  border: 2px solid var(--color-gold);
+  
   transition: 0.7s;
 }
 
 .button:hover {
   color: var(--color-white);
   cursor: pointer;
+}
+
+.button_active {
+  color: var(--color-black);
+
+  background-color: var(--color-gold);
 }
 
 .skills {
@@ -343,21 +352,8 @@ html {
   gap: 5px;
 }
 
-.portfolio__button {
+.portfolio__container {
   margin-bottom: 60px;
-}
-
-.button_no-active {
-  color: var(--color-gold);
-
-  background-color: transparent;
-  border: 2px solid var(--color-gold);
-
-  transition: 0.7s;
-}
-
-.button_no-active:hover {
-  color: var(--color-white);
 }
 
 .gallery__container,
@@ -650,7 +646,6 @@ html {
 
   .title {
     line-height: 64px;
-    text-align: center;
   }
 
   .title_big {
@@ -693,7 +688,7 @@ html {
     justify-content: center;
   }
 
-  .portfolio__button {
+  .portfolio__container {
     margin: 0 auto 60px;
   }
 
@@ -731,6 +726,10 @@ html {
     margin: 0 auto;
     flex-direction: column;
     align-items: center;
+  }
+
+  .contacts__title {
+    text-align: center;
   }
 
   .contacts__form {

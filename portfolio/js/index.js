@@ -19,8 +19,7 @@ navMenu.addEventListener('click', closeMenuWithLink);
 
 
 const galleryImages = document.querySelectorAll('.gallery__img');
-const galleryButtonContainer = document.querySelector('.portfolio__button');
-const galleryButtons = galleryButtonContainer.querySelectorAll('.button');
+const galleryButtonContainer = document.querySelector('.portfolio__container');
 
 function changeGalleryImage(season) {
    galleryImages.forEach((img, index) => {
@@ -28,17 +27,19 @@ function changeGalleryImage(season) {
    });
 }
 
-function changeClassActive(element, className) {
-   galleryButtons.forEach(button => {
-      button.classList.add(className)
+function changeClass(className, activeElement, changeClassName) {
+   document.querySelectorAll(`.${className}`).forEach(button => {
+      button.classList.remove(changeClassName)
    });
-   element.classList.remove(className);
+   activeElement.classList.add(changeClassName);
 }
 
 galleryButtonContainer.addEventListener('click', event => {
-   if (event.target.classList.contains('button')) {
+   const buttonClassName = 'portfolio__button';
+
+   if (event.target.classList.contains(buttonClassName)) {
       changeGalleryImage(event.target.dataset.i18n);
-      changeClassActive(event.target, 'button_no-active');
+      changeClass(buttonClassName, event.target, 'button_active');
    }
 });
 
@@ -63,7 +64,7 @@ function getTranslate(lang, element) {
   return i18Obj[lang][element.dataset.i18n];
 }
 
-function showTranslate(lang) {
+function changeTranslate(lang) {
   const elementsWithDataAtribute = document.querySelectorAll('[data-i18n]');
   
   elementsWithDataAtribute.forEach(element => {
@@ -76,8 +77,11 @@ function showTranslate(lang) {
 }
 
 langButtonContainer.addEventListener('click', event => {
-  if (event.target.classList.contains('lang__button')) {
-    showTranslate(event.target.dataset.lang);
+  const langButtonClassName = 'lang__button';
+
+  if (event.target.classList.contains(langButtonClassName)) {
+    changeTranslate(event.target.dataset.lang);
+    changeClass(langButtonClassName, event.target, 'lang__button_active');
   }
 });
 
