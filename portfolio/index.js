@@ -1,3 +1,5 @@
+import i18Obj from './translate.js';
+
 const humburger = document.querySelector('.humburger');
 const navMenu = document.querySelector('.nav');
 const page = document.querySelector('.shadow');
@@ -35,7 +37,7 @@ function changeClassActive(element, className) {
 
 galleryButtonContainer.addEventListener('click', event => {
    if (event.target.classList.contains('button')) {
-      changeGalleryImage(event.target.dataset.season);
+      changeGalleryImage(event.target.dataset.i18n);
       changeClassActive(event.target, 'button_no-active');
    }
 });
