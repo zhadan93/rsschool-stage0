@@ -57,6 +57,31 @@ function preloadPortfolioImages() {
 preloadPortfolioImages();
 
 
+const langButtonContainer = document.querySelector('.header__lang');
+
+function getTranslate(lang, element) {
+  return i18Obj[lang][element.dataset.i18n];
+}
+
+function showTranslate(lang) {
+  const elementsWithDataAtribute = document.querySelectorAll('[data-i18n]');
+  
+  elementsWithDataAtribute.forEach(element => {
+    if (element.placeholder) {
+      element.placeholder = `${getTranslate(lang, element)}`;
+    } else {
+      element.textContent = getTranslate(lang, element);
+    }
+  })
+}
+
+langButtonContainer.addEventListener('click', event => {
+  if (event.target.classList.contains('lang__button')) {
+    showTranslate(event.target.dataset.lang);
+  }
+});
+
+
 console.log(`Самооценка за задание 85 баллов
 
 1. Вёрстка соответствует макету. Ширина экрана 768px +48
