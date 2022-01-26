@@ -16,6 +16,20 @@ humburger.addEventListener('click', closeMenu);
 
 navMenu.addEventListener('click', closeMenuWithLink);
 
+const galleryImages = document.querySelectorAll('.gallery__img');
+const galleryButtonContainer = document.querySelector('.button__container');
+
+function changeImage(season) {
+   galleryImages.forEach((item, index) => item.src = `assets/img/${season}/${index + 1}.jpg`);
+}
+
+galleryButtonContainer.addEventListener('click', function(event) {
+   if (event.target.classList.contains('button')) changeImage(event.target.dataset.season);
+});
+
+
+
+
 
 console.log(`Самооценка за задание 85 баллов
 
