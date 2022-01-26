@@ -13,22 +13,32 @@ function closeMenuWithLink(event) {
 }
 
 humburger.addEventListener('click', closeMenu);
-
 navMenu.addEventListener('click', closeMenuWithLink);
 
-const galleryImages = document.querySelectorAll('.gallery__img');
-const galleryButtonContainer = document.querySelector('.button__container');
 
-function changeImage(season) {
-   galleryImages.forEach((item, index) => item.src = `assets/img/${season}/${index + 1}.jpg`);
+const galleryImages = document.querySelectorAll('.gallery__img');
+const galleryButtonContainer = document.querySelector('.portfolio__button');
+const galleryButtons = galleryButtonContainer.querySelectorAll('.button');
+
+function changeGalleryImage(season) {
+   galleryImages.forEach((img, index) => {
+      img.src = `assets/img/${season}/${index + 1}.jpg`
+   });
 }
 
-galleryButtonContainer.addEventListener('click', function(event) {
-   if (event.target.classList.contains('button')) changeImage(event.target.dataset.season);
+function changeClassActive(element, className) {
+   galleryButtons.forEach(button => {
+      button.classList.add(className)
+   });
+   element.classList.remove(className);
+}
+
+galleryButtonContainer.addEventListener('click', event => {
+   if (event.target.classList.contains('button')) {
+      changeGalleryImage(event.target.dataset.season);
+      changeClassActive(event.target, 'button_no-active');
+   }
 });
-
-
-
 
 
 console.log(`Самооценка за задание 85 баллов
