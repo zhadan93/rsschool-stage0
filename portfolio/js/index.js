@@ -34,12 +34,14 @@ function changeClass(className, activeElement, changeClassName) {
    activeElement.classList.add(changeClassName);
 }
 
+const buttonClassName = 'portfolio__button';
+const activeButtonClassName = 'button_active'
+
 galleryButtonContainer.addEventListener('click', event => {
-   const buttonClassName = 'portfolio__button';
 
    if (event.target.classList.contains(buttonClassName)) {
       changeGalleryImage(event.target.dataset.i18n);
-      changeClass(buttonClassName, event.target, 'button_active');
+      changeClass(buttonClassName, event.target, activeButtonClassName);
    }
 });
 
@@ -54,11 +56,11 @@ function preloadPortfolioImages() {
   });
   
 }
-
 preloadPortfolioImages();
 
 
 const langButtonContainer = document.querySelector('.header__lang');
+let language = 'en';
 
 function getTranslate(lang, element) {
   return i18Obj[lang][element.dataset.i18n];
@@ -76,14 +78,34 @@ function changeTranslate(lang) {
   })
 }
 
-langButtonContainer.addEventListener('click', event => {
-  const langButtonClassName = 'lang__button';
+const langButtonClassName = 'lang__button';
+const langActiveButtonClassName = 'lang__button_active';
 
+langButtonContainer.addEventListener('click', event => {
   if (event.target.classList.contains(langButtonClassName)) {
-    changeTranslate(event.target.dataset.lang);
-    changeClass(langButtonClassName, event.target, 'lang__button_active');
+    const {lang} = event.target.dataset;
+    language = lang;
+    changeTranslate(lang);
+    changeClass(langButtonClassName, event.target, langActiveButtonClassName);
   }
 });
+
+
+function setLocalStorage() {
+  localStorage.setItem('lang', language);
+}
+window.addEventListener('beforeunload', setLocalStorage);
+
+function getLocalStorage() {
+  const localStorageLang = localStorage.getItem('lang');
+
+  if(localStorageLang) {
+    language = localStorageLang;
+    changeTranslate(language);
+    changeClass(langButtonClassName, document.querySelector(`[data-lang='${language}']`), langActiveButtonClassName);
+  }
+}
+window.addEventListener('load', getLocalStorage);
 
 
 console.log(`Самооценка за задание 85 баллов
