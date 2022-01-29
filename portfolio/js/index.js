@@ -2,12 +2,12 @@ import i18Obj from './translate.js';
 
 const humburger = document.querySelector('.humburger');
 const navMenu = document.querySelector('.nav');
-const page = document.querySelector('.shadow');
+const shadow = document.querySelector('.shadow');
 
 function closeMenu() {
    humburger.classList.toggle('open');
    navMenu.classList.toggle('open');
-   page.classList.toggle('open');
+   shadow.classList.toggle('open');
 }
 
 function closeMenuWithLink(event) {
@@ -91,18 +91,53 @@ langButtonContainer.addEventListener('click', event => {
 });
 
 
-function setLocalStorage() {
-  localStorage.setItem('lang', language);
+let theme = 'dark';
+const themeSwitchButton = document.querySelector('.them-button');
+const themButtonSun = document.querySelector('.them-button__sun');
+
+const page = document.querySelector('.page');
+const hero = document.querySelector('.hero__container');
+const contacts = document.querySelector('.contacts__container');
+const contactInputs = document.querySelectorAll('.contacts__entry-field');
+const header = document.querySelector('.header');
+
+function changeTheme() {
+  themButtonSun.setAttribute('href', `./assets/svg/sprite.svg#${theme}`);
+  page.classList.toggle('page_light'); 
+  header.classList.toggle('header_light');
+  hero.classList.toggle(`hero__container_light`);
+  contacts.classList.toggle(`contacts__container_light`);
+  contactInputs.forEach(input => input.classList.toggle(`contacts__entry-field_light`));
 }
-window.addEventListener('beforeunload', setLocalStorage);
+
+themeSwitchButton.addEventListener('click', () => {
+  theme = (theme == 'dark') ? 'light' : 'dark';
+  changeTheme();
+});
+
+
+function setLocalStorage(entries) {
+  entries.forEach(entry => localStorage.setItem(entry[0], entry[1]));
+}
+
+window.addEventListener('beforeunload', () => {
+  const entriesForLocalStorage = [['lang', language], ['theme', theme]];
+  setLocalStorage(entriesForLocalStorage);
+});
+
 
 function getLocalStorage() {
   const localStorageLang = localStorage.getItem('lang');
-
-  if(localStorageLang) {
+  const localStorageTheme = localStorage.getItem('theme');
+  
+  if (localStorageLang) {
     language = localStorageLang;
     changeTranslate(language);
     changeClass(langButtonClassName, document.querySelector(`[data-lang='${language}']`), langActiveButtonClassName);
+  }
+  if (localStorageTheme === 'light') {
+    theme = localStorageTheme;
+    changeTheme();
   }
 }
 window.addEventListener('load', getLocalStorage);
