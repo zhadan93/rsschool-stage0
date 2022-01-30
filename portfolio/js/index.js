@@ -27,21 +27,20 @@ function changeGalleryImage(season) {
    });
 }
 
-function changeClass(className, activeElement, changeClassName) {
+function changeClass(className, activeElement) {
    document.querySelectorAll(`.${className}`).forEach(button => {
-      button.classList.remove(changeClassName)
+      button.classList.remove(`${className}_active`)
    });
-   activeElement.classList.add(changeClassName);
+   activeElement.classList.add(`${className}_active`);
 }
 
 const buttonClassName = 'portfolio__button';
-const activeButtonClassName = 'portfolio__button_active'
 
 galleryButtonContainer.addEventListener('click', event => {
 
    if (event.target.classList.contains(buttonClassName)) {
       changeGalleryImage(event.target.dataset.i18n);
-      changeClass(buttonClassName, event.target, activeButtonClassName);
+      changeClass(buttonClassName, event.target);
    }
 });
 
@@ -79,14 +78,13 @@ function changeTranslate(lang) {
 }
 
 const langButtonClassName = 'lang__button';
-const langActiveButtonClassName = 'lang__button_active';
 
 langButtonContainer.addEventListener('click', event => {
   if (event.target.classList.contains(langButtonClassName)) {
     const {lang} = event.target.dataset;
     language = lang;
     changeTranslate(lang);
-    changeClass(langButtonClassName, event.target, langActiveButtonClassName);
+    changeClass(langButtonClassName, event.target);
   }
 });
 
@@ -94,8 +92,8 @@ langButtonContainer.addEventListener('click', event => {
 let theme = 'dark';
 const themeSwitchButton = document.querySelector('.them-button');
 const themButtonSun = document.querySelector('.them-button__sun');
-const mas = ['.page', '.header', '.hero__container', '.main__button', '.portfolio__button', '.contacts__container',
-  '.contacts__entry-field', '.price__button'];
+const mas = ['.page', '.header', '.them-button__icon', '.hero__container', '.main__button', '.portfolio__button',
+  '.contacts__container', '.contacts__entry-field', '.price__button'];
 
 function changeTheme() {
   const res = [];
@@ -127,7 +125,7 @@ function getLocalStorage() {
   if (localStorageLang) {
     language = localStorageLang;
     changeTranslate(language);
-    changeClass(langButtonClassName, document.querySelector(`[data-lang='${language}']`), langActiveButtonClassName);
+    changeClass(langButtonClassName, document.querySelector(`[data-lang='${language}']`));
   }
   
   if (localStorageTheme === 'light') {

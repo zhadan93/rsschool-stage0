@@ -554,6 +554,11 @@ html {
   --hover-color: #ffffff;
 }
 
+.them-button__icon.light-theme {
+  width: 40px;
+  height: 40px;
+} 
+
 .hero__container.light-theme {
   background-image: url(../assets/img/bg-light.jpg);
 }
