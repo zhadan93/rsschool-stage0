@@ -307,6 +307,13 @@ html {
 .button:hover {
   color: var(--hover-text-btn-color);
   cursor: pointer;
+
+  box-shadow: 0 0 0 0.8em rgba(255, 255, 255, 0);
+	animation: pulse 1s;
+}
+
+@keyframes pulse{
+	0%{box-shadow: 0 0 0 0 var(--decoration-color)}
 }
 
 .skills {
@@ -584,6 +591,12 @@ html {
 .price__button.light-theme:hover {
   --hover-text-btn-color: #bdae82;
   background-color: #1c1c1c;
+
+  animation: pulse_light 1s;
+}
+
+@keyframes pulse_light {
+	0%{box-shadow: 0 0 0 0 #1c1c1c}
 }
 
 .portfolio__button.light-theme:hover,

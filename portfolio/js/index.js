@@ -136,6 +136,10 @@ function getLocalStorage() {
 window.addEventListener('load', getLocalStorage);
 
 
+
+
+
+
 console.log(`Самооценка за задание 85 баллов
 
 1. Вёрстка соответствует макету. Ширина экрана 768px +48
