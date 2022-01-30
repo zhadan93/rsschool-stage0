@@ -5,9 +5,9 @@
     <meta http-equiv="x-ua-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/style.css">
   </head>
 
   <body class="page">
@@ -18,23 +18,29 @@
         <div class="container container_space-between header__container">    
           <a href="#" class="logo">
             <svg class="icon logo__icon">
-              <use xlink:href="assets/svg/sprite.svg#logo"></use>
+              <use href="./assets/svg/sprite.svg#logo"></use>
             </svg>
           </a>
 
           <nav class="nav">
             <ul class="nav__list">
-              <li class="nav__item"><a href="#skills" class="link nav__link">Skills</a></li>
-              <li class="nav__item"><a href="#portfolio" class="link nav__link">Portfolio</a></li>
-              <li class="nav__item"><a href="#video" class="link nav__link">Video</a></li>
-              <li class="nav__item"><a href="#price" class="link nav__link">Price</a></li>
-              <li class="nav__item"><a href="#contacts" class="link nav__link">Contacts</a></li>
+              <li class="nav__item"><a href="#skills" class="link nav__link" data-i18n="skills">Skills</a></li>
+              <li class="nav__item"><a href="#portfolio" class="link nav__link" data-i18n="portfolio">Portfolio</a></li>
+              <li class="nav__item"><a href="#video" class="link nav__link" data-i18n="video">Video</a></li>
+              <li class="nav__item"><a href="#price" class="link nav__link" data-i18n="price">Price</a></li>
+              <li class="nav__item"><a href="#contacts" class="link nav__link" data-i18n="contacts">Contacts</a></li>
             </ul>
           </nav>
 
           <div class="lang header__lang">
-            <a href="#" class="link lang__link lang__link_active">en</a> / <a href="#" class="link lang__link">ru</a>
+            <button href="#" class="lang__button lang__button_active" data-lang="en">en</button> / <button href="#" class="lang__button" data-lang="ru">ru</button>
           </div>
+
+          <button class="them-button">
+            <svg class="icon them-button__icon">
+              <use class="them-button__sun" href="./assets/svg/sprite.svg#dark"></use>
+            </svg>
+          </button>
 
           <div class="humburger">
             <span class="line"></span>
@@ -49,10 +55,11 @@
         <div class="container hero__container">
           <section class="section hero__section">
             <div class="hero__content">
-              <h1 class="title title_big">Alexa Rise</h1>
-              <div class="hero__text">Save sincere emotions, romantic feelings and happy moments of life together 
-                  with professional photographer Alexa Rise</div>
-              <button class="button">Hire me</button>
+              <h1 class="title title_big" data-i18n="hero-title">Alexa Rise</h1>
+              <div class="hero__text" data-i18n="hero-text">Save sincere emotions, romantic feelings and happy moments of life together 
+                  with professional photographer Alexa Rise
+              </div>
+              <button class="button main__button" data-i18n="hire">Hire me</button>
             </div>
           </section>
         </div>
@@ -60,24 +67,24 @@
         <div class="container">
           <section class="section skills__section" id="skills">
             <div class="title__container">
-              <h2 class="title title_center skills__title_center">Skills</h2>
+              <h2 class="title title_center skills__title_center" data-i18n="skills">Skills</h2>
             </div>
             <div class="skills">
               <div class="skills__item">
-                <div class="skills__text_bold">Digital photography</div>
-                <p class="text_small skills__text_small">High-quality photos in the studio and on the nature</p>
+                <div class="skills__text_bold" data-i18n="skill-title-1">Digital photography</div>
+                <p class="text_small skills__text_small" data-i18n="skill-text-1">High-quality photos in the studio and on the nature</p>
               </div>
               <div class="skills__item">
-                <div class="skills__text_bold">Video shooting</div>
-                <p class="text_small skills__text_small">Capture your moments so that they always stay with you</p>
+                <div class="skills__text_bold" data-i18n="skill-title-2">Video shooting</div>
+                <p class="text_small skills__text_small" data-i18n="skill-text-2">Capture your moments so that they always stay with you</p>
               </div>
               <div class="skills__item">
-                <div class="skills__text_bold">Retouch</div>
-                <p class="text_small skills__text_small">I strive to make photography surpass reality</p>
+                <div class="skills__text_bold" data-i18n="skill-title-3">Retouch</div>
+                <p class="text_small skills__text_small" data-i18n="skill-text-3">I strive to make photography surpass reality</p>
               </div>
               <div class="skills__item">
-                <div class="skills__text_bold">Audio</div>
-                <p class="text_small skills__text_small">Professional sounds recording<br>for video, advertising, portfolio</p>
+                <div class="skills__text_bold" data-i18n="skill-title-4">Audio</div>
+                <p class="text_small skills__text_small" data-i18n="skill-text-4">Professional sounds recording<br>for video, advertising, portfolio</p>
               </div>
             </div>
           </section>
@@ -86,26 +93,26 @@
         <div class="container">
           <section class="section" id="portfolio">
             <div class="title__container">
-              <h2 class="title title_center">Portfolio</h2>
+              <h2 class="title title_center" data-i18n="portfolio">Portfolio</h2>
             </div>
-            <div class="button__container portfolio__button">
+            <div class="button__container portfolio__container">
               <div class="button__container">
-                <button class="button button_no-active">Winter</button>
-                <button class="button button_no-active">Spring</button>
+                <button class="button portfolio__button" data-i18n="winter">Winter</button>
+                <button class="button portfolio__button" data-i18n="spring">Spring</button>
               </div>
               <div class="button__container">
-                <button class="button button_no-active">Summer</button>
-                <button class="button">Autumn</button>
+                <button class="button portfolio__button" data-i18n="summer">Summer</button>
+                <button class="button portfolio__button portfolio__button_active" data-i18n="autumn">Autumn</button>
               </div>
             </div>
             <div class="gallery__container">
-              <img src="assets/img/young-couple.jpg" class="gallery__img" alt="Young couple in love in autumn" width="450" height="560">
-              <img src="assets/img/horse.jpg" class="gallery__img" alt="Horse in the forest in autumn" width="450" height="560">
-              <img src="assets/img/child.jpg" class="gallery__img" alt="Boy in green plush suit in autumn" width="450" height="560">
-              <img src="assets/img/forest.jpg" class="gallery__img" alt="Forest in autumn" width="450" height="560">
-              <img src="assets/img/elderly-couple.jpg" class="gallery__img" alt="Elderly couple in love in autumn" width="450"
+              <img src="./assets/img/autumn/1.jpg" class="gallery__img" alt="Young couple in love in autumn" width="450" height="560">
+              <img src="./assets/img/autumn/2.jpg" class="gallery__img" alt="Horse in the forest in autumn" width="450" height="560">
+              <img src="./assets/img/autumn/3.jpg" class="gallery__img" alt="Boy in green plush suit in autumn" width="450" height="560">
+              <img src="./assets/img/autumn/4.jpg" class="gallery__img" alt="Forest in autumn" width="450" height="560">
+              <img src="./assets/img/autumn/5.jpg" class="gallery__img" alt="Elderly couple in love in autumn" width="450"
                   height="560">
-              <img src="assets/img/girl-taking-pictures.jpg" class="gallery__img" alt="Girl taking pictures by the phone in autumn"
+              <img src="./assets/img/autumn/6.jpg" class="gallery__img" alt="Girl taking pictures by the phone in autumn"
                   width="450" height="560">
             </div>
           </section>
@@ -114,13 +121,13 @@
         <div class="container">
           <section class="section" id="video">
             <div class="title__container">
-              <h2 class="title title_center">Video</h2>
+              <h2 class="title title_center" data-i18n="video">Video</h2>
             </div>
             <div class="video">
-              <img src="assets/img/video-player.jpg" class="video__poster" alt="Wedding video poster" width="1400" height="750">
+              <img src="./assets/img/video-player.jpg" class="video__poster" alt="Wedding video poster" width="1400" height="750">
               <button class="video__button">
                 <svg class="icon video__icon">
-                  <use xlink:href="assets/svg/sprite.svg#play"></use>
+                  <use href="assets/svg/sprite.svg#play"></use>
                 </svg>
               </button>
             </div>
@@ -130,38 +137,38 @@
         <div class="container">
           <section class="section price__section" id="price">
             <div class="title__container">
-              <h2 class="title title_center">Price</h2>
+              <h2 class="title title_center" data-i18n="price">Price</h2>
             </div>
             <div class="price__container">
               <div class="price__card">
                 <h3 class="title title_middle">Standard</h3>
                 <div class="title price__dollars">500 $</div>
-                <span class="price__item text_small">One location</span>
-                <span class="price__item text_small">120 photos in color</span>
-                <span class="price__item text_small">12 photos in retouch</span>
-                <span class="price__item text_small">Readiness 2-3 weeks</span>
-                <span class="price__item text_small">Make up, visage</span>
-                <button class="button">Order shooting</button>              
+                <span class="price__item text_small" data-i18n="price-description-1-span-1">One location</span>
+                <span class="price__item text_small" data-i18n="price-description-1-span-2">120 photos in color</span>
+                <span class="price__item text_small" data-i18n="price-description-1-span-3">12 photos in retouch</span>
+                <span class="price__item text_small" data-i18n="price-description-1-span-4">Readiness 2-3 weeks</span>
+                <span class="price__item text_small" data-i18n="price-description-1-span-5">Make up, visage</span>
+                <button class="button price__button" data-i18n="order">Order shooting</button>              
               </div> 
               <div class="price__card">
                 <h3 class="title title_middle">Premium</h3>
                 <div class="title price__dollars">700 $</div>
-                <span class="price__item text_small">One or two locations</span>
-                <span class="price__item text_small">200 photos in color</span>
-                <span class="price__item text_small">20 photos in retouch</span>
-                <span class="price__item text_small">Readiness 1-2 weeks</span>
-                <span class="price__item text_small">Make up, visage</span>
-                <button class="button">Order shooting</button>
+                <span class="price__item text_small" data-i18n="price-description-2-span-1">One or two locations</span>
+                <span class="price__item text_small" data-i18n="price-description-2-span-2">200 photos in color</span>
+                <span class="price__item text_small" data-i18n="price-description-2-span-3">20 photos in retouch</span>
+                <span class="price__item text_small" data-i18n="price-description-2-span-4">Readiness 1-2 weeks</span>
+                <span class="price__item text_small" data-i18n="price-description-2-span-5">Make up, visage</span>
+                <button class="button price__button" data-i18n="order">Order shooting</button>
               </div>
               <div class="price__card">
                 <h3 class="title title_middle">Gold</h3>
                 <div class="title price__dollars">1000 $</div>
-                <span class="price__item text_small">Three locations or more</span>
-                <span class="price__item text_small">300 photos in color</span>
-                <span class="price__item text_small">50 photos in retouch</span>
-                <span class="price__item text_small">Readiness 1 week</span>
-                <span class="price__item text_small">Make up, visage, hairstyle</span>
-                <button class="button">Order shooting</button>              
+                <span class="price__item text_small" data-i18n="price-description-3-span-1">Three locations or more</span>
+                <span class="price__item text_small" data-i18n="price-description-3-span-2">300 photos in color</span>
+                <span class="price__item text_small" data-i18n="price-description-3-span-3">50 photos in retouch</span>
+                <span class="price__item text_small" data-i18n="price-description-3-span-4">Readiness 1 week</span>
+                <span class="price__item text_small" data-i18n="price-description-3-span-5">Make up, visage, hairstyle</span>
+                <button class="button price__button" data-i18n="order">Order shooting</button>              
               </div>
             </div>
           </section>
@@ -170,12 +177,12 @@
         <div class="container contacts__container">
           <section class="section contacts__section" id="contacts">
             <div class="contacts__block">
-              <h2 class="title">Contact me</h2>
+              <h2 class="title contacts__title" data-i18n="contact-me">Contact me</h2>
               <form class="contacts__form" action="#">
-                <input class="contacts__entry-field" type="email" placeholder="E-mail">
-                <input class="contacts__entry-field" type="tel" placeholder="Phone">
-                <textarea class="contacts__entry-field contacts__entry-field_big" placeholder="Message"></textarea>
-                <button class="button">Send message</button>
+                <input class="contacts__entry-field" type="email" placeholder="E-mail" data-i18n="e-mail">
+                <input class="contacts__entry-field" type="tel" placeholder="Phone" data-i18n="phone">
+                <textarea class="contacts__entry-field contacts__entry-field_big" placeholder="Message" data-i18n="message"></textarea>
+                <button class="button main__button" data-i18n="send-message">Send message</button>
               </form>
             </div>
           </section>
@@ -196,28 +203,28 @@
             <li class="footer__item">
               <a href="#" class="link footer__link">
                 <svg class="icon footer__icon">
-                  <use xlink:href="assets/svg/sprite.svg#inst"></use>
+                  <use href="./assets/svg/sprite.svg#inst"></use>
                 </svg>
               </a>
             </li>
             <li class="footer__item">
               <a href="#" class="link footer__link">
                 <svg class="icon footer__icon">
-                  <use xlink:href="assets/svg/sprite.svg#fb"></use>
+                  <use href="./assets/svg/sprite.svg#fb"></use>
                 </svg>
               </a>
             </li>
             <li class="footer__item">
               <a href="#" class="link footer__link">
                 <svg class="icon footer__icon">
-                  <use xlink:href="assets/svg/sprite.svg#tw"></use>
+                  <use href="./assets/svg/sprite.svg#tw"></use>
                 </svg>
               </a>
             </li>
             <li class="footer__item">
               <a href="#" class="link footer__link">
                 <svg class="icon footer__icon">
-                  <use xlink:href="assets/svg/sprite.svg#pinterest"></use>
+                  <use href="./assets/svg/sprite.svg#pinterest"></use>
                 </svg>
               </a>
             </li>
@@ -225,6 +232,6 @@
         </div>
       </footer>
     </div>
-    <script src="index.js"></script>
+    <script type="module" src="./js/index.js"></script>
   </body>
 </html>
