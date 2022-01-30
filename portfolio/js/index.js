@@ -35,7 +35,7 @@ function changeClass(className, activeElement, changeClassName) {
 }
 
 const buttonClassName = 'portfolio__button';
-const activeButtonClassName = 'button_active'
+const activeButtonClassName = 'portfolio__button_active'
 
 galleryButtonContainer.addEventListener('click', event => {
 
@@ -94,20 +94,14 @@ langButtonContainer.addEventListener('click', event => {
 let theme = 'dark';
 const themeSwitchButton = document.querySelector('.them-button');
 const themButtonSun = document.querySelector('.them-button__sun');
-
-const page = document.querySelector('.page');
-const hero = document.querySelector('.hero__container');
-const contacts = document.querySelector('.contacts__container');
-const contactInputs = document.querySelectorAll('.contacts__entry-field');
-const header = document.querySelector('.header');
+const mas = ['.page', '.header', '.hero__container', '.main__button', '.portfolio__button', '.contacts__container',
+  '.contacts__entry-field', '.price__button'];
 
 function changeTheme() {
+  const res = [];
   themButtonSun.setAttribute('href', `./assets/svg/sprite.svg#${theme}`);
-  page.classList.toggle('page_light'); 
-  header.classList.toggle('header_light');
-  hero.classList.toggle(`hero__container_light`);
-  contacts.classList.toggle(`contacts__container_light`);
-  contactInputs.forEach(input => input.classList.toggle(`contacts__entry-field_light`));
+  mas.forEach(item => res.push(...document.querySelectorAll(item)));
+  res.forEach(item => item.classList.toggle(`light-theme`));
 }
 
 themeSwitchButton.addEventListener('click', () => {
@@ -135,6 +129,7 @@ function getLocalStorage() {
     changeTranslate(language);
     changeClass(langButtonClassName, document.querySelector(`[data-lang='${language}']`), langActiveButtonClassName);
   }
+  
   if (localStorageTheme === 'light') {
     theme = localStorageTheme;
     changeTheme();

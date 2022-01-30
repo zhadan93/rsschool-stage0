@@ -1,13 +1,19 @@
 :root {
   --background-color: #000000;
+
   --main-text-color: #ffffff;
   --title-color: #bdae82;
   --hover-color: #bdae82;
-  --color-black: #000000;
-  --color-gold: #bdae82;
+  --hover-text-btn-color: #ffffff;
+  --text-btn-color: #000000;
+  --text-active-btn-color: #bdae82;
+ 
+  --decoration-color: #bdae82;
+
   --font1: 60px;
   --font2: 40px;
   --font3: 20px;
+
   --padding: 19px;
 }
 
@@ -285,24 +291,22 @@ html {
   width: 220px;
   height: 55px;
 
-  color: var(--color-gold);
   line-height: 40px;
-
-  background-color: transparent;
-  border: 2px solid var(--color-gold);
   
+  border: none;
+
   transition: 0.7s;
 }
 
-.button:hover {
-  color: var(--color-white);
-  cursor: pointer;
+.main__button,
+.price__button {
+  color: var(--text-btn-color);
+  background-color: var(--decoration-color);
 }
 
-.button_active {
-  color: var(--color-black);
-
-  background-color: var(--color-gold);
+.button:hover {
+  color: var(--hover-text-btn-color);
+  cursor: pointer;
 }
 
 .skills {
@@ -370,6 +374,19 @@ html {
   margin-bottom: 60px;
 }
 
+.portfolio__button {
+  color: var(--text-active-btn-color);
+
+  background-color: transparent;
+  border: 2px solid var(--decoration-color);
+}
+
+.portfolio__button_active {
+  color: var(--text-btn-color);
+
+  background-color: var(--decoration-color);
+}
+
 .gallery__container,
 .price__container {
   display: flex;
@@ -421,7 +438,7 @@ html {
 
   text-align: center;
 
-  border: 3px solid var(--color-gold);
+  border: 3px solid var(--decoration-color);
 }
 
 .title_middle {
@@ -483,7 +500,7 @@ html {
   color: var(--title-color);
   
   background: rgba(0, 0, 0, 0.5);
-  border: 3px solid var(--color-gold);
+  border: 3px solid var(--decoration-color);
   outline: none;
 }
 
@@ -527,25 +544,53 @@ html {
 }
 
 /* light theme start */
-.page_light {
+.page.light-theme {
   --background-color: #ffffff;
   --main-text-color: #1c1c1c;
   --title-color: #1c1c1c;
 }
 
-.header_light {
+.header.light-theme {
   --hover-color: #ffffff;
 }
 
-.hero__container_light {
+.hero__container.light-theme {
   background-image: url(../assets/img/bg-light.jpg);
 }
 
-.contacts__container_light {
+.main__button.light-theme {
+  --decoration-color: #ffffff;
+}
+
+.portfolio__button.light-theme {
+  --text-active-btn-color: #1c1c1c;
+
+  background-color: var(--decoration-color);
+}
+
+.portfolio__button_active.light-theme {
+  --text-btn-color: #bdae82;
+  background-color: #1c1c1c;
+}
+
+.main__button.light-theme:hover,
+.portfolio__button.light-theme:hover,
+.portfolio__button_active.light-theme:hover,
+.price__button.light-theme:hover {
+  --hover-text-btn-color: #bdae82;
+  background-color: #1c1c1c;
+}
+
+.portfolio__button.light-theme:hover,
+.portfolio__button_active.light-theme:hover {
+  border: 2px solid #1c1c1c;
+}
+
+.contacts__container.light-theme {
   background: url(../assets/img/contacts-light.jpg);
 }
 
-.contacts__entry-field_light {
+.contacts__entry-field.light-theme {
   background: rgba(255, 255, 255, 0.5);
 }
 /* light theme end */
