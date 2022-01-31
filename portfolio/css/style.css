@@ -555,6 +555,7 @@ html {
   --background-color: #ffffff;
   --main-text-color: #1c1c1c;
   --title-color: #1c1c1c;
+  --text-btn-color: #1c1c1c;
 }
 
 .header.light-theme {
@@ -660,6 +661,10 @@ html {
     z-index: 5;
   
     background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .shadow.light-theme {
+    background-color: rgba(0, 0, 0, 0.3);
   }
 
   .header__container {

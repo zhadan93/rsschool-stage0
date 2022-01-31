@@ -92,7 +92,7 @@ langButtonContainer.addEventListener('click', event => {
 let theme = 'dark';
 const themeSwitchButton = document.querySelector('.them-button');
 const themButtonSun = document.querySelector('.them-button__sun');
-const mas = ['.page', '.header', '.them-button__icon', '.hero__container', '.main__button', '.portfolio__button',
+const mas = ['.page', '.shadow', '.header', '.them-button__icon', '.hero__container', '.main__button', '.portfolio__button',
   '.contacts__container', '.contacts__entry-field', '.price__button'];
 
 function changeTheme() {
