@@ -141,3 +141,12 @@
   height: 50px;
 }
 
+@media (max-width: 1024px) {
+  .container {   
+    --padding: 20px;
+  }
+
+  .nav__item {
+    margin-right: 30px;
+  }
+}
