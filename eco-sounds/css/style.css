@@ -55,16 +55,18 @@
   fill: var(--text-active-color);
 } 
 
-.logo_active:hover {
-  fill: var(--text-color);
-}
-
 .logo_active {
   fill: var(--text-active-color);
 }
 
+.logo_active:hover {
+  fill: var(--text-color);
+}
+
 .nav__list {
   display: flex;
+  margin: 0;
+  padding: 0;
   
   list-style: none;
 }
@@ -83,6 +85,10 @@
 
 .nav__item:last-child {
   margin-right: 0;
+}
+
+.nav__item_active {
+  color: var(--text-active-color);
 }
 
 .main {
@@ -134,3 +140,4 @@
   width: 135px;
   height: 50px;
 }
+
