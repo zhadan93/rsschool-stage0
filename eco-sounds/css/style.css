@@ -3,6 +3,7 @@
 
   --font: 20px;
   --text-color: #ffffff;
+  --text-hover-color: #faecc6;
   --text-active-color: #bdae82;
 
   --background-color: #000000;
@@ -53,6 +54,7 @@
 
 .logo:hover {
   fill: var(--text-active-color);
+  transform: scale(1.1);
 } 
 
 .logo_active {
@@ -60,7 +62,7 @@
 }
 
 .logo_active:hover {
-  fill: var(--text-color);
+  fill: var(--text-hover-color);
 }
 
 .nav__list {
@@ -72,6 +74,8 @@
 }
 
 .nav__item {
+  position: relative;
+
   margin-right: 40px;
 
   transition: 0.7s;
@@ -87,8 +91,39 @@
   margin-right: 0;
 }
 
+.nav__item:after {
+  content: "";
+
+  position: absolute;
+  left: 50%;
+
+  display: block;
+  width: 0%;
+  height: 1px;
+  margin-top: 4px;
+  
+  background-color: var(--text-active-color);
+  
+  transition: width .3s ease-in-out;
+  transform: translateX(-50%);
+}
+
+.nav__item:hover:after {
+  width: 100%;
+}
+
 .nav__item_active {
   color: var(--text-active-color);
+}
+
+.nav__item_active:hover {
+  color: var(--text-hover-color);
+}
+
+.nav__item_active:hover:after {
+  width: 100%;
+
+  background-color: var(--text-hover-color);
 }
 
 .main {
@@ -139,6 +174,10 @@
   display: block;
   width: 135px;
   height: 50px;
+}
+
+.rss__logo:hover {
+  transform: none;
 }
 
 @media (max-width: 1024px) {
