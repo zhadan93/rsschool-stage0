@@ -1,0 +1,191 @@
+:root {
+  --padding: 40px;
+
+  --font: 20px;
+  --text-color: #ffffff;
+  --text-hover-color: #faecc6;
+  --text-active-color: #bdae82;
+
+  --background-color: #000000;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/InterVariableFont.ttf");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  font-family: "Inter", sans-serif;
+  font-size: var(--font);
+  color: var(--text-color);
+
+  background-color: var(--background-color);
+}
+
+.container {
+  width: calc(100% - 40px);
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--padding);
+}
+
+.header__container,
+.footer__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 80px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+
+  fill: var(--text-color);
+
+  transition: 0.7s;
+
+  cursor: pointer;
+}
+
+.logo:hover {
+  fill: var(--text-active-color);
+  transform: scale(1.1);
+} 
+
+.logo_active {
+  fill: var(--text-active-color);
+}
+
+.logo_active:hover {
+  fill: var(--text-hover-color);
+}
+
+.nav__list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  
+  list-style: none;
+}
+
+.nav__item {
+  position: relative;
+
+  margin-right: 40px;
+
+  transition: 0.7s;
+  cursor: pointer;
+}
+
+.nav__item:hover,
+.github:hover {
+  color: var(--text-active-color);
+} 
+
+.nav__item:last-child {
+  margin-right: 0;
+}
+
+.nav__item:after {
+  content: "";
+
+  position: absolute;
+  left: 50%;
+
+  display: block;
+  width: 0%;
+  height: 1px;
+  margin-top: 4px;
+  
+  background-color: var(--text-active-color);
+  
+  transition: width .3s ease-in-out;
+  transform: translateX(-50%);
+}
+
+.nav__item:hover:after {
+  width: 100%;
+}
+
+.nav__item_active {
+  color: var(--text-active-color);
+}
+
+.nav__item_active:hover {
+  color: var(--text-hover-color);
+}
+
+.nav__item_active:hover:after {
+  width: 100%;
+
+  background-color: var(--text-hover-color);
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 160px);
+
+  background-image: url("../assets/img/forest.jpg");
+  background-size: cover;
+}
+
+.play {
+  background-color: transparent;
+  border: none;
+
+  outline: none;
+}
+
+.play__icon {
+  width: 160px;
+  height: 160px;
+
+  fill: var(--text-active-color);
+
+  transition: 0.7s;
+}
+
+.play__icon:hover {
+  filter: drop-shadow(7px 7px 5px var(--text-active-color));
+  fill: #887b56;
+  cursor: pointer;
+}
+
+.author {
+  display: flex;
+  gap: 20px;
+}
+
+.github {
+  color: inherit;
+  text-decoration: none;
+
+  transition: 0.7s;
+}
+
+.rss__logo {
+  display: block;
+  width: 135px;
+  height: 50px;
+}
+
+.rss__logo:hover {
+  transform: none;
+}
+
+@media (max-width: 1024px) {
+  .container {   
+    --padding: 20px;
+  }
+
+  .nav__item {
+    margin-right: 30px;
+  }
+}

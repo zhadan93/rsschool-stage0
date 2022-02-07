@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecosounds</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body class="page">
+    
+    <header class="header">
+      <div class="container header__container">    
+        
+        <svg class="logo logo_active" data-bird="forest">
+          <use href="./assets/svg/sprite.svg#logo"></use>
+        </svg>
+
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item" data-bird="nightingale">Соловей</li>
+            <li class="nav__item" data-bird="thrush">Дрозд</li>
+            <li class="nav__item" data-bird="robin">Малиновка</li>
+            <li class="nav__item" data-bird="lark">Жаворонок</li>
+            <li class="nav__item" data-bird="warbler">Славка</li>
+          </ul>
+        </nav>
+
+      </div>
+    </header>
+
+    <main class="main">
+      <button class="play">
+        <svg class="play__icon">
+          <use class="play__btn-icon" href="./assets/svg/sprite.svg#play"></use>
+        </svg>
+      </button>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__container">
+        
+        <div class="author">
+          <div class="copyright">©</div>
+          <div class="year">2022</div>
+          <a class="github" href="https://github.com/zhadan93">github</a>
+        </div>
+
+        <a class="rss__link" href="https://rs.school/js-stage0/">
+          <svg class="logo rss__logo">
+            <use href="./assets/svg/sprite.svg#rss"></use>
+          </svg>
+        </a>
+
+      </div>
+    </footer>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
