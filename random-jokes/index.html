@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quotes</title>
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="page">
+  <header class="header">
+    <div class="container header__container">
+      <div class="lang header__lang">
+        <button class="lang__button lang__button-active" data-lang="en">en</button> / <button class="lang__button" data-lang="ru">ru</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container main__container">
+      <div class="blockquote">
+        <blockquote class="blockquote__content"></blockquote>
+        <span class="blockquote__author"></span>
+      </div>
+
+      <button class="button" type="button">Generate new</button>
+    </div>
+  </main> 
+
+  <footer class="footer">
+    <div class="container footer__container">
+      
+      <div class="author">
+        <div class="copyright">©</div>
+        <div class="year">2022</div>
+        <a class="github" href="https://github.com/zhadan93">github</a>
+      </div>
+
+      <a class="rss__link" href="https://rs.school/js-stage0/">
+        <svg class="rss__logo">
+          <use href="./assets/svg/sprite.svg#rss"></use>
+        </svg>
+      </a>
+
+    </div>
+  </footer>
+
+  <script type="module" src="./js/index.js"></script>
+</body>
+</html>
