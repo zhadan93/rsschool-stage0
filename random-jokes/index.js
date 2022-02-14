@@ -1,4 +1,3 @@
-const blockquote = document.querySelector('.blockquote');
 const blockquoteContent = document.querySelector('.blockquote__content');
 const blockquoteAuthor = document.querySelector('.blockquote__author');
 
@@ -16,11 +15,8 @@ function changeRandomQuote() {
   const {text, author} = quotes[randomQuote];
 
   blockquoteAuthor.textContent = author;
-  blockquoteContent.textContent = `"${text}"`;
-
-  blockquote.classList.toggle('blur');
-  setTimeout(() => blockquote.classList.toggle('blur'), 1000);
-  
+  blockquoteContent.textContent = `"${text}"`;  
+ 
 }
 
 async function getQuote() {
@@ -32,6 +28,16 @@ async function getQuote() {
 }
 getQuote();
 
+const blockquote = document.querySelector('.blockquote');
 const button = document.querySelector('.button');
 
-button.addEventListener('click', changeRandomQuote)
+function blurBackground() {
+  blockquote.classList.toggle('blur');
+  setTimeout(() => blockquote.classList.toggle('blur'), 1000);
+}
+
+function changeRandomQuoteAndBackground () {
+  blurBackground();
+  setTimeout(changeRandomQuote, 200);
+}
+button.addEventListener('click', changeRandomQuoteAndBackground)
