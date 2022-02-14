@@ -10,15 +10,23 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body class="page">
-  <main class="main">
-    
-    <div class="blockquote">
-      <blockquote class="blockquote__content"></blockquote>
-      <span class="blockquote__author"></span>
+  <header class="header">
+    <div class="container header__container">
+      <div class="lang header__lang">
+        <button class="lang__button lang__button-active" data-lang="en">en</button> / <button class="lang__button" data-lang="ru">ru</button>
+      </div>
     </div>
+  </header>
 
-    <button class="button" type="button">Generate new</button>
-  
+  <main class="main">
+    <div class="container main__container">
+      <div class="blockquote">
+        <blockquote class="blockquote__content"></blockquote>
+        <span class="blockquote__author"></span>
+      </div>
+
+      <button class="button" type="button">Generate new</button>
+    </div>
   </main> 
 
   <footer class="footer">
@@ -39,6 +47,6 @@
     </div>
   </footer>
 
-  <script src="./index.js"></script>
+  <script type="module" src="./js/index.js"></script>
 </body>
 </html>
