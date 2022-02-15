@@ -67,13 +67,23 @@ function changeClass(className, activeElement) {
 
 function getTranslate(lang) {
   const index = language == 'en' ? quotes.findIndex(item => `"${item.text}"` === blockquoteContent.textContent) : russianQuotes.findIndex(item => `"${item.text}"` === blockquoteContent.textContent); 
- 
+
   language = lang;
-  return language == 'en' ? quotes[index] : russianQuotes[index];
+
+  return language == 'en' ? {
+      'quoteTranslate' : quotes[index],
+      'buttonTranslate' : 'Generate new',
+    } : {
+      'quoteTranslate' : russianQuotes[index],
+      'buttonTranslate' : 'Сгенерировать новую',
+    };
 }
 
 function changeTranslate(lang) {
-  const quoteTranslate = getTranslate(lang);
+  const translate = getTranslate(lang);
+  const {quoteTranslate, buttonTranslate} = translate;
+
+  button.textContent = buttonTranslate;
   changeQuote(quoteTranslate); 
 }
 
