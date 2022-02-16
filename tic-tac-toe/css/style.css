@@ -1,0 +1,86 @@
+:root {
+  --padding: 40px;
+
+  --font-title: 40px;
+  --font: 20px;
+  --text-color: #ffffff;
+  --text-hover-color: #b8a389;
+
+  --background-color: #000000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  font-size: var(--font);
+  color: var(--text-color);
+
+  background-color: var(--background-color);
+}
+
+.container {
+  width: calc(100% - 2 * var(--padding));
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--padding);
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+}
+
+.main {
+  background-color: rgb(206, 247, 233);
+  height: calc(100vh - 160px);
+}
+
+.footer__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 80px;
+  padding: 10px 0;
+} 
+
+.author {
+  display: flex;
+  gap: 20px;
+}
+
+.github {
+  color: inherit;
+  text-decoration: none;
+
+  transition: 0.7s;
+}
+
+.github:hover {
+  color: var(--text-hover-color);
+}
+
+.rss__logo {
+  display: block;
+  width: 135px;
+  height: 50px;
+
+  fill: var(--text-color);
+
+  transition: 0.7s;
+}
+
+.rss__logo:hover {
+  fill: var(--text-hover-color);
+}
+
+@media (max-width: 768px) {
+  .footer__container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
