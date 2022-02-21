@@ -2,12 +2,14 @@ const gameField = document.querySelector('.game-field');
 const restartButton = document.querySelector('.button-restart');
 const playButton = document.querySelector('.button-play');
 
-function hidePlayButton() {
-  playButton.classList.add('hide');
+let winner = false;
+
+function hideElement(element) {
+  element.classList.add('hide');
 } 
 
 function drawGameField() {
-  hidePlayButton();
+  hideElement(playButton);
   gameField.classList.remove('hide');
   restartButton.classList.remove('hide');
 }
@@ -36,10 +38,12 @@ function handleCellClick(cellClick) {
   
   drawFigure(cellClick);
   changeGameStates(cellIndex);
+
+  if (gameSteps > 4) showResult();
 }
 
 gameField.addEventListener('click', event => {
-  if (event.target.classList.contains('cell')) handleCellClick(event.target);
+  if (event.target.classList.contains('cell') && !winner) handleCellClick(event.target);
 });
 
 const winningCombinations = [
@@ -53,27 +57,58 @@ const winningCombinations = [
   [2, 4, 6]
 ];
 
-/*function getResult() {
+const popUp = document.querySelector('.pop-up');
+const popUpMessage = document.querySelector('.pop-up__message');
+const popUpButton = document.querySelector('.pop-up__button');
+
+const showDrawMessage = () => 'Game ended in a draw!';
+const showResultMessage = (win) => `Winner ${win} by ${gameSteps} steps`;
+
+function getResult() {
   for (let i = 0; i < 8; i++) {
     const winCombination = winningCombinations[i];
-    let a = clickedCells[winCombination[0]];
-    let b = clickedCells[winCombination[1]];
-    let c = clickedCells[winCombination[2]];
-    if (a === undefined || b === undefined || c === undefined) {
-        continue;
-    }
-    if (a === b && b === c) {
-      return {
-        win: winCombination,
-        figure: a,
-      }
+    let a = playedCells[winCombination[0]];
+    let b = playedCells[winCombination[1]];
+    let c = playedCells[winCombination[2]];
+    
+    if (a === undefined || b === undefined || c === undefined) continue;
+
+    if (a === b && b === c) return {
+      winCombination,
+      win: a,
     }
   }
-}*/
+
+  if (!playedCells.includes(undefined) && gameSteps == 9) return 'draw';
+}
+
+function showResult() {
+  const win = getResult();
+  let message = '';
+
+  if (win == 'draw') message = showDrawMessage(); 
+  if (typeof(win) == 'object') message = showResultMessage(win.win);
+
+  if (win !== undefined) {
+    winner = true;
+    popUp.classList.remove('hide');
+    popUpMessage.textContent = message;
+  }
+}
+
+
+function resetGame() {
+  hideElement(popUp);
+  clearGameField();
+}
+
+popUpButton.addEventListener('click', resetGame);
+
 
 const cells = document.querySelectorAll('.cell');
 
-function resetGame() {
+function clearGameField() {
+  winner = false;
   gameSteps = 0;
   currentPlayer = 'X';
 
@@ -82,4 +117,4 @@ function resetGame() {
   playedCells = [];
 }
 
-restartButton.addEventListener('click', resetGame);
+restartButton.addEventListener('click', clearGameField);
