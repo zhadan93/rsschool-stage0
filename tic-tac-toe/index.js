@@ -1,5 +1,6 @@
 const gameField = document.querySelector('.game-field');
 const restartButton = document.querySelector('.button-restart');
+const historyButton = document.querySelector('.button-history');
 const playButton = document.querySelector('.button-play');
 
 let winner = false;
@@ -12,6 +13,7 @@ function drawGameField() {
   hideElement(playButton);
   gameField.classList.remove('hide');
   restartButton.classList.remove('hide');
+  historyButton.classList.remove('hide');
 }
 
 playButton.addEventListener('click', drawGameField);
@@ -62,7 +64,7 @@ const popUpMessage = document.querySelector('.pop-up__message');
 const popUpButton = document.querySelector('.pop-up__button');
 
 const showDrawMessage = () => 'Game ended in a draw!';
-const showResultMessage = (win) => `Winner ${win} by ${gameSteps} steps`;
+const showResultMessage = (win) => `Player ${win} has won the game. Steps: ${gameSteps}`;
 
 function getResult() {
   for (let i = 0; i < 8; i++) {
@@ -82,6 +84,8 @@ function getResult() {
   if (!playedCells.includes(undefined) && gameSteps == 9) return 'draw';
 }
 
+let messages = [];
+
 function showResult() {
   const win = getResult();
   let message = '';
@@ -93,9 +97,12 @@ function showResult() {
     winner = true;
     popUp.classList.remove('hide');
     popUpMessage.textContent = message;
+
+    messages.unshift(message);
+    
+    if (messages.length > 10) messages.pop();
   }
 }
-
 
 function resetGame() {
   hideElement(popUp);
@@ -118,3 +125,35 @@ function clearGameField() {
 }
 
 restartButton.addEventListener('click', clearGameField);
+
+function setLocalStorage(entries) {
+  entries.forEach(entry => localStorage.setItem(entry[0], entry[1]));
+}
+
+window.addEventListener('beforeunload', () => {
+  const messagesForLocalStorage = [['messages', messages]];
+  setLocalStorage(messagesForLocalStorage);
+});
+
+function getLocalStorage() {
+  const localStorageMessages = localStorage.getItem('messages');
+
+  if (localStorageMessages) {
+    messages = localStorageMessages.split(',');
+  }
+}
+
+window.addEventListener('load', getLocalStorage);
+
+const history = document.querySelector('.history');
+
+function showHistory() {
+  history.classList.remove('hide');
+  messages.forEach((message, index) => {
+    const div = document.createElement('div');
+    div.textContent = `${index + 1}. ${message}`;
+    history.append(div);
+  })
+}
+
+historyButton.addEventListener('click', showHistory);
