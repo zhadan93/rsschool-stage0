@@ -124,7 +124,7 @@ const popUpMessage = document.querySelector('.pop-up__message');
 const popUpButton = document.querySelector('.pop-up__button');
 
 const showDrawMessage = () => 'Game ended in a draw!';
-const showResultMessage = (win) => `Player ${win} has won the game. Steps: ${gameSteps}`;
+const showResultMessage = (win) => `Player '${win}' has won the game. Steps: ${gameSteps}`;
 
 const cells = document.querySelectorAll('.cell');
 
@@ -169,10 +169,8 @@ function showResult() {
 
   if (win !== undefined) {
     winner = true;
-    cells.forEach(cell => {  
-      addInactiveClass(cell, 'cell');
-    });
-    
+    cells.forEach(cell => addInactiveClass(cell, 'cell'));
+
     setTimeout(() => showWinner(message), 500);
 
     messages.unshift(message);
