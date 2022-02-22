@@ -73,7 +73,7 @@ function handleSound() {
 }
 
 function drawFigure(cellPlayed) {
-  cellPlayed.textContent = currentPlayer == 'X' ? currentPlayer : 'O';
+  cellPlayed.textContent = currentPlayer == 'X' ? 'O' : 'X';
 }
 
 function changeGameStates(cellIndex) {
@@ -91,18 +91,21 @@ function handleCellClick(cellClick) {
 
   if (playedCells[cellIndex] !== undefined) return;
   
-  drawFigure(cellClick);
-  handleSound();
   changeGameStates(cellIndex);
-  removeInactiveClass(resetButton, 'button__reset');
-  addInactiveClass(cellClick, 'cell');
 
   if (gameSteps > 4) showResult();
+
+  removeInactiveClass(resetButton, 'button__reset');
+  drawFigure(cellClick);
+  handleSound();
+  addInactiveClass(cellClick, 'cell');
 }
 
-gameField.addEventListener('click', event => {
-  if (event.target.classList.contains('cell') && !winner) handleCellClick(event.target);
-});
+if (winner == false) {
+  gameField.addEventListener('click', event => {
+    if (event.target.classList.contains('cell') && !winner) handleCellClick(event.target);
+  });
+}
 
 const winningCombinations = [
   [0, 1, 2],
@@ -123,6 +126,8 @@ const popUpButton = document.querySelector('.pop-up__button');
 const showDrawMessage = () => 'Game ended in a draw!';
 const showResultMessage = (win) => `Player ${win} has won the game. Steps: ${gameSteps}`;
 
+const cells = document.querySelectorAll('.cell');
+
 function getResult() {
   for (let i = 0; i < 8; i++) {
     const winCombination = winningCombinations[i];
@@ -133,9 +138,9 @@ function getResult() {
     if (a === undefined || b === undefined || c === undefined) continue;
 
     if (a === b && b === c) return {
-      winCombination,
-      win: a,
-    }
+        winCombination,
+        winnerFigure: a,
+      }
   }
 
   if (!playedCells.includes(undefined) && gameSteps == 9) return 'draw';
@@ -144,8 +149,6 @@ function getResult() {
 let messages = [];
 
 function showWinner(message) {
-  winner = true;
-
   const shawElements = [blackout, popUp];
   shawElement(shawElements);
 
@@ -154,16 +157,22 @@ function showWinner(message) {
 
 function showResult() {
   let message = '';
-  const winner = getResult();
 
-  if (winner == 'draw') message = showDrawMessage(); 
-  if (typeof(winner) == 'object') {
-    const {winCombination, win} = winner;
-    message = showResultMessage(win);
+  const win = getResult();
+
+  if (win == 'draw') message = showDrawMessage(); 
+  if (typeof(win) == 'object') {
+    const {winCombination, winnerFigure} = win;
+    message = showResultMessage(winnerFigure);
     winCombination.forEach(item => document.querySelector(`[data-cell-index="${item}"]`).classList.add('winner'));
   }
 
-  if (winner !== undefined) {
+  if (win !== undefined) {
+    winner = true;
+    cells.forEach(cell => {  
+      addInactiveClass(cell, 'cell');
+    });
+    
     setTimeout(() => showWinner(message), 500);
 
     messages.unshift(message);
@@ -181,8 +190,6 @@ function resetGame() {
 
 popUpButton.addEventListener('click', resetGame);
 
-
-const cells = document.querySelectorAll('.cell');
 
 function addInactiveClass(element, className) {
   element.classList.add(`${className}--inactive`);
