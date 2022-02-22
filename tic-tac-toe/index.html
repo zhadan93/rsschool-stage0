@@ -29,20 +29,25 @@
         <div data-cell-index="7" class="cell"></div>
         <div data-cell-index="8" class="cell"></div>
       </div>
-      <button class="button button-restart hide" type="button">Restart Game</button>
-      <button class="button button-history hide" type="button">History</button>
-      <button class="button button-play" type="button">Let's play</button>
+
+      <div class="button__container hide">
+        <button class="button button__reset button__reset--inactive" type="button">Reset Game</button>
+        <button class="button button__history" type="button">History</button>
+      </div>
+
+      <button class="button button__play" type="button">Let's play</button>
     </div>
 
+    <div class="blackout hide"></div>
     <div class="pop-up hide">
       <h2 class="pop-up__header">Game over</h2>
       <p class="pop-up__message"></p>
-      <button class="pop-up__button" type="button">Play again?</button>
+      <button class="button pop-up__button" type="button">Play again?</button>
     </div>
 
     <div class="history hide">
+      <span class="history__button-close"></span>
       <h2 class="history__header">History</h2>
-
     </div>
   </main>
 

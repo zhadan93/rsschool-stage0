@@ -4,9 +4,25 @@
   --font-title: 40px;
   --font: 20px;
   --text-color: #ffffff;
-  --text-hover-color: #b8a389;
+  --text-hover-color: #9cb9f8;
+
+  --shadow: #bfd4ff;
+  --decor-color: #000000;
+  --inactive-color: #969595;
 
   --background-color: #000000;
+}
+
+@font-face {
+  font-family: "PermanentMarker";
+  src: url("../assets/fonts/PermanentMarkerRegular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "GloriaHallelujah";
+  src: url("../assets/fonts/GloriaHallelujahRegular.ttf");
+  font-weight: 400;
 }
 
 * {
@@ -14,6 +30,7 @@
 }
 
 .page {
+  font-family: "GloriaHallelujah", sans-serif;
   font-size: var(--font);
   color: var(--text-color);
 
@@ -35,10 +52,11 @@
 }
 
 .main {
-  position: relative
-  ;
-  background-color: rgb(206, 247, 233);
+  position: relative;
+
   height: calc(100vh - 160px);
+
+  background: linear-gradient(to top left, #c1c0fd, #53d4ca);
 }
 
 .main__container {
@@ -50,22 +68,49 @@
 }
 
 .button {
-  width: 300px;
-  height: 80px;
+  width: 180px;
+  height: 55px;
 
-  font-size: 30px;
-  color: #41a8a0;
+  font-size: inherit;
+  color: var(--decor-color);
 
   background-color: #ffffff;
 
-  border: 3px solid #41a8a0;
-  border-radius: 10px;
+  border: 3px solid var(--decor-color);
+  border-radius: 30px;
 
   outline: none;
 }
 
 .button:hover {
+  box-shadow: inset 0 0 8px 3px var(--shadow);
   cursor: pointer;
+}
+
+.button__reset--inactive {
+  color: var(--inactive-color);
+
+  background-color: #f2f2f2;
+  border: 3px solid var(--inactive-color);
+}
+
+.button__reset--inactive:hover {
+  box-shadow: inset 0 0 8px 3px transparent;
+  cursor: default;
+}
+
+.button__play {
+  width: 250px;
+  height: 250px;
+
+  font-size: 35px;
+
+  border: 6px solid var(--decor-color);
+  border-radius: 200px;
+}
+
+.button__play:hover {
+  box-shadow: inset 0 0 20px 10px var(--shadow);
 }
 
 .game-field {
@@ -74,6 +119,10 @@
   width: 360px;
   height: 360px;
   margin-bottom: 20px;
+
+  font-family: "PermanentMarker", sans-serif;
+  font-size: 70px;
+  color: inherit;
 }
 
 .cell {
@@ -82,58 +131,149 @@
   align-items: center;
   width: 120px;
   height: 120px;
+
+  color: inherit;
 }
 
 .cell:nth-child(n + 1):nth-child(-n + 3),
 .cell:nth-child(n + 4):nth-child(-n + 6){
-  border-bottom: 3px solid #000000;
+  border-bottom: 3px solid var(--decor-color);
 }
 
 .cell:nth-child(n+4):nth-child(-n + 6),
 .cell:nth-child(n+7) {
-  border-top: 3px solid #000000;
+  border-top: 3px solid var(--decor-color);
 }
 
 .cell:nth-child(3n+1),
 .cell:nth-child(3n+2) {
-  border-right: 3px solid #000000;
+  border-right: 3px solid var(--decor-color);
 }
 
 .cell:nth-child(3n+2),
 .cell:nth-child(3n+3) {
-  border-left: 3px solid #000000;
+  border-left: 3px solid var(--decor-color);
 }
 
+.blackout.hide,
 .game-field.hide,
-.button-restart.hide,
-.button-history.hide,
+.button__container.hide,
 .history.hide,
-.button-play.hide,
+.button__play.hide,
 .pop-up.hide {
   display: none;
 }
 
 .cell:hover {
   cursor: pointer;
+  background-color:rgba(255, 255, 255, 0.2);
+}
+
+.cell--inactive:hover {
+  cursor: default;
+  background-color: transparent;
+}
+
+.blackout {
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .pop-up {
   position: absolute;
   top: 50%;
   left: 50%;
+  z-index: 15;
 
-  width: 300px;
-  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 350px;
+  height: 350px;
   padding: 0 20px;
 
-  color: #000000;
-  text-align: center;
+  color: var(--decor-color);
 
   background-color: #ffffff;
 
-  border: 3px solid #000000;
+  border: 6px solid #000000;
+  border-radius: 350px;
+  
+  transform: translate(-50%, -50%)
+}
+
+.pop-up__message {
+  text-align: center;
+}
+
+.history {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 15;
+
+  width: 450px;
+  height: auto;
+  padding: 0 20px 20px;
+
+  color: var(--decor-color);
+
+  background-color: #ffffff;
+  border: 6px solid var(--decor-color);
+  border-radius: 20px;
 
   transform: translate(-50%, -50%)
+}
+
+.history__button-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  width: 28px;
+  height: 28px;
+}
+  
+.history__button-close:before, .history__button-close:after {
+  position: absolute;
+  content: ' ';
+  left: 12px;
+  top: -3px;
+
+  height: 35px;
+  width: 3px;
+  background-color: var(--decor-color);
+}
+
+.history__button-close:before {
+  transform: rotate(45deg);
+}
+
+.history__button-close:after {
+  transform: rotate(-45deg);
+}
+
+.history__button-close:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.history__header {
+  text-align: center;
+}
+
+.history__record {
+  margin-bottom: 10px;
+}
+
+.history__record:last-child {
+  margin-bottom: 0;
 }
 
 .footer__container {
@@ -146,10 +286,16 @@
 
 .author {
   display: flex;
+  align-items: center;
+  height: 60px;
   gap: 20px;
 }
 
 .github {
+  display: flex;
+  align-items: center;
+  height: 100%;
+
   color: inherit;
   text-decoration: none;
 
@@ -157,7 +303,10 @@
 }
 
 .github:hover {
-  color: var(--text-hover-color);
+  color: transparent;    
+	-webkit-background-clip: text;
+	background-clip: text;
+	background-image: linear-gradient(90deg, #c1c0fd, #53d4ca);
 }
 
 .rss__logo {

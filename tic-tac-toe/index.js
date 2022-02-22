@@ -1,19 +1,28 @@
 const gameField = document.querySelector('.game-field');
-const restartButton = document.querySelector('.button-restart');
-const historyButton = document.querySelector('.button-history');
-const playButton = document.querySelector('.button-play');
+const buttonContainer = document.querySelector('.button__container');
+const resetButton = document.querySelector('.button__reset');
+const historyButton = document.querySelector('.button__history');
+const playButton = document.querySelector('.button__play');
 
 let winner = false;
 
 function hideElement(element) {
-  element.classList.add('hide');
+  if (!Array.isArray(element)) element = [element];
+
+  element.forEach(el => el.classList.add('hide'));
+} 
+
+function shawElement(element) {
+  if (!Array.isArray(element)) element = [element];
+
+  element.forEach(el => el.classList.remove('hide'));
 } 
 
 function drawGameField() {
   hideElement(playButton);
-  gameField.classList.remove('hide');
-  restartButton.classList.remove('hide');
-  historyButton.classList.remove('hide');
+  
+  const shawElements = [gameField, buttonContainer];
+  shawElement(shawElements);
 }
 
 playButton.addEventListener('click', drawGameField);
@@ -22,6 +31,13 @@ playButton.addEventListener('click', drawGameField);
 let gameSteps = 0;
 let currentPlayer = 'X';
 let playedCells = [];
+
+let isPlay = true;
+
+const audio = new Audio();
+audio.src = `./assets/audio/click.mp3`;
+audio.currentTime = 0;
+
 
 function drawFigure(cellPlayed) {
   cellPlayed.textContent = currentPlayer == 'X' ? currentPlayer : 'O';
@@ -33,13 +49,20 @@ function changeGameStates(cellIndex) {
   gameSteps++;
 }
 
+function removeInactiveClass(element, className) {
+  element.classList.remove(`${className}--inactive`);
+}
+
 function handleCellClick(cellClick) {
   const {cellIndex} = cellClick.dataset;
 
   if (playedCells[cellIndex] !== undefined) return;
   
+  audio.play();
   drawFigure(cellClick);
   changeGameStates(cellIndex);
+  removeInactiveClass(resetButton, 'button__reset');
+  addInactiveClass(cellClick, 'cell');
 
   if (gameSteps > 4) showResult();
 }
@@ -59,6 +82,7 @@ const winningCombinations = [
   [2, 4, 6]
 ];
 
+const blackout = document.querySelector('.blackout');
 const popUp = document.querySelector('.pop-up');
 const popUpMessage = document.querySelector('.pop-up__message');
 const popUpButton = document.querySelector('.pop-up__button');
@@ -95,17 +119,22 @@ function showResult() {
 
   if (win !== undefined) {
     winner = true;
-    popUp.classList.remove('hide');
+
+    const shawElements = [blackout, popUp];
+    shawElement(shawElements);
+    
     popUpMessage.textContent = message;
 
     messages.unshift(message);
-    
+
     if (messages.length > 10) messages.pop();
   }
 }
 
 function resetGame() {
-  hideElement(popUp);
+  const hideElements = [popUp, blackout];
+
+  hideElement(hideElements);
   clearGameField();
 }
 
@@ -114,17 +143,24 @@ popUpButton.addEventListener('click', resetGame);
 
 const cells = document.querySelectorAll('.cell');
 
+function addInactiveClass(element, className) {
+  element.classList.add(`${className}--inactive`);
+}
+
 function clearGameField() {
   winner = false;
   gameSteps = 0;
   currentPlayer = 'X';
-
-  cells.forEach(cell => cell.textContent = '');
+  addInactiveClass(resetButton, 'button__reset');
+  cells.forEach(cell => {
+    cell.textContent = '';
+    removeInactiveClass(cell, 'cell');
+  });
 
   playedCells = [];
 }
 
-restartButton.addEventListener('click', clearGameField);
+resetButton.addEventListener('click', clearGameField);
 
 function setLocalStorage(entries) {
   entries.forEach(entry => localStorage.setItem(entry[0], entry[1]));
@@ -146,14 +182,42 @@ function getLocalStorage() {
 window.addEventListener('load', getLocalStorage);
 
 const history = document.querySelector('.history');
+const historyButtonClose = document.querySelector('.history__button-close');
 
 function showHistory() {
-  history.classList.remove('hide');
+  const shawElements = [blackout, history];
+  shawElement(shawElements);
+  
   messages.forEach((message, index) => {
     const div = document.createElement('div');
+    div.classList.add('history__record');
     div.textContent = `${index + 1}. ${message}`;
     history.append(div);
   })
 }
 
 historyButton.addEventListener('click', showHistory);
+
+function closeHistory() {
+  const historyRecords = document.querySelectorAll('.history__record');
+  
+  historyRecords.forEach(record => record.remove());
+
+  const hideElements = [blackout, history];
+  hideElement(hideElements);
+}
+
+historyButtonClose.addEventListener('click', closeHistory);
+
+ 
+
+/*function changeAudio() {
+  changePlayButton();
+  togglePlayAudio();
+}
+
+playButton.addEventListener('click', () => {
+  isPlay = isPlay ? false : true;
+
+  changeAudio();
+})*/
