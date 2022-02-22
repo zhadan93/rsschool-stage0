@@ -28,16 +28,49 @@ function drawGameField() {
 playButton.addEventListener('click', drawGameField);
 
 
+let isPlay = true;
+
+const sound = document.querySelector('.sound');
+const soundButton = document.querySelector('.button__sound-icon');
+
+const audio = new Audio();
+audio.src = `./assets/audio/clickX.mp3`;
+audio.currentTime = 0;
+
+function toggleSoundButton () {
+  soundIcon = isPlay == true ?  'unmute' : 'mute';
+  soundButton.setAttribute('href', `./assets/svg/sprite.svg#${soundIcon}`)
+}
+
+function toggleVolume() {
+  audio.volume = isPlay == true ? 1 : 0;
+}
+
+function handleButtonSound() {
+  isPlay = isPlay == true ? false : true;
+  toggleVolume();
+  toggleSoundButton();
+}
+
+sound.addEventListener('click', handleButtonSound);
+
+
 let gameSteps = 0;
 let currentPlayer = 'X';
 let playedCells = [];
 
-let isPlay = true;
+function togglePlayerSound() {
+  audio.src = `./assets/audio/click${currentPlayer}.mp3`;
+}
 
-const audio = new Audio();
-audio.src = `./assets/audio/click.mp3`;
-audio.currentTime = 0;
+function togglePlayingSound() {
+  isPlay == true ? audio.play() : audio.pause();
+}
 
+function handleSound() {
+  togglePlayerSound();
+  togglePlayingSound()
+}
 
 function drawFigure(cellPlayed) {
   cellPlayed.textContent = currentPlayer == 'X' ? currentPlayer : 'O';
@@ -58,8 +91,8 @@ function handleCellClick(cellClick) {
 
   if (playedCells[cellIndex] !== undefined) return;
   
-  audio.play();
   drawFigure(cellClick);
+  handleSound();
   changeGameStates(cellIndex);
   removeInactiveClass(resetButton, 'button__reset');
   addInactiveClass(cellClick, 'cell');
@@ -110,20 +143,28 @@ function getResult() {
 
 let messages = [];
 
+function showWinner(message) {
+  winner = true;
+
+  const shawElements = [blackout, popUp];
+  shawElement(shawElements);
+
+  popUpMessage.textContent = message;
+}
+
 function showResult() {
-  const win = getResult();
   let message = '';
+  const winner = getResult();
 
-  if (win == 'draw') message = showDrawMessage(); 
-  if (typeof(win) == 'object') message = showResultMessage(win.win);
+  if (winner == 'draw') message = showDrawMessage(); 
+  if (typeof(winner) == 'object') {
+    const {winCombination, win} = winner;
+    message = showResultMessage(win);
+    winCombination.forEach(item => document.querySelector(`[data-cell-index="${item}"]`).classList.add('winner'));
+  }
 
-  if (win !== undefined) {
-    winner = true;
-
-    const shawElements = [blackout, popUp];
-    shawElement(shawElements);
-    
-    popUpMessage.textContent = message;
+  if (winner !== undefined) {
+    setTimeout(() => showWinner(message), 500);
 
     messages.unshift(message);
 
@@ -155,6 +196,7 @@ function clearGameField() {
   cells.forEach(cell => {
     cell.textContent = '';
     removeInactiveClass(cell, 'cell');
+    cell.classList.remove('winner');
   });
 
   playedCells = [];
@@ -208,16 +250,3 @@ function closeHistory() {
 }
 
 historyButtonClose.addEventListener('click', closeHistory);
-
- 
-
-/*function changeAudio() {
-  changePlayButton();
-  togglePlayAudio();
-}
-
-playButton.addEventListener('click', () => {
-  isPlay = isPlay ? false : true;
-
-  changeAudio();
-})*/
