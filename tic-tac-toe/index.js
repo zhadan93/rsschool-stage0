@@ -28,16 +28,49 @@ function drawGameField() {
 playButton.addEventListener('click', drawGameField);
 
 
+let isPlay = true;
+
+const sound = document.querySelector('.sound');
+const soundButton = document.querySelector('.button__sound-icon');
+
+const audio = new Audio();
+audio.src = `./assets/audio/clickX.mp3`;
+audio.currentTime = 0;
+
+function toggleSoundButton () {
+  soundIcon = isPlay == true ?  'unmute' : 'mute';
+  soundButton.setAttribute('href', `./assets/svg/sprite.svg#${soundIcon}`)
+}
+
+function toggleVolume() {
+  audio.volume = isPlay == true ? 1 : 0;
+}
+
+function handleButtonSound() {
+  isPlay = isPlay == true ? false : true;
+  toggleVolume();
+  toggleSoundButton();
+}
+
+sound.addEventListener('click', handleButtonSound);
+
+
 let gameSteps = 0;
 let currentPlayer = 'X';
 let playedCells = [];
 
-let isPlay = true;
+function togglePlayerSound() {
+  audio.src = `./assets/audio/click${currentPlayer}.mp3`;
+}
 
-const audio = new Audio();
-audio.src = `./assets/audio/click.mp3`;
-audio.currentTime = 0;
+function togglePlayingSound() {
+  isPlay == true ? audio.play() : audio.pause();
+}
 
+function handleSound() {
+  togglePlayerSound();
+  togglePlayingSound()
+}
 
 function drawFigure(cellPlayed) {
   cellPlayed.textContent = currentPlayer == 'X' ? currentPlayer : 'O';
@@ -58,8 +91,8 @@ function handleCellClick(cellClick) {
 
   if (playedCells[cellIndex] !== undefined) return;
   
-  audio.play();
   drawFigure(cellClick);
+  handleSound();
   changeGameStates(cellIndex);
   removeInactiveClass(resetButton, 'button__reset');
   addInactiveClass(cellClick, 'cell');
@@ -110,20 +143,28 @@ function getResult() {
 
 let messages = [];
 
+function showWinner(message) {
+  winner = true;
+
+  const shawElements = [blackout, popUp];
+  shawElement(shawElements);
+
+  popUpMessage.textContent = message;
+}
+
 function showResult() {
-  const win = getResult();
   let message = '';
+  const winner = getResult();
 
-  if (win == 'draw') message = showDrawMessage(); 
-  if (typeof(win) == 'object') message = showResultMessage(win.win);
+  if (winner == 'draw') message = showDrawMessage(); 
+  if (typeof(winner) == 'object') {
+    const {winCombination, win} = winner;
+    message = showResultMessage(win);
+    winCombination.forEach(item => document.querySelector(`[data-cell-index="${item}"]`).classList.add('winner'));
+  }
 
-  if (win !== undefined) {
-    winner = true;
-
-    const shawElements = [blackout, popUp];
-    shawElement(shawElements);
-    
-    popUpMessage.textContent = message;
+  if (winner !== undefined) {
+    setTimeout(() => showWinner(message), 500);
 
     messages.unshift(message);
 
@@ -155,6 +196,7 @@ function clearGameField() {
   cells.forEach(cell => {
     cell.textContent = '';
     removeInactiveClass(cell, 'cell');
+    cell.classList.remove('winner');
   });
 
   playedCells = [];
@@ -209,15 +251,14 @@ function closeHistory() {
 
 historyButtonClose.addEventListener('click', closeHistory);
 
- 
-
-/*function changeAudio() {
-  changePlayButton();
-  togglePlayAudio();
-}
-
-playButton.addEventListener('click', () => {
-  isPlay = isPlay ? false : true;
-
-  changeAudio();
-})*/
+console.log(`Самооценка за задание 70 баллов
+1. Вёрстка +10
+    - реализован интерфейс игры +5
+    - в футере приложения есть ссылка на гитхаб автора приложения, год создания приложения, логотип курса со ссылкой на курс +5
+2. При кликах по игровому полю по очереди отображаются крестики и нолики. Первая фигура всегда крестик +10
+3. Игра завершается, когда три фигуры выстроились в ряд по вертикали, горизонтали или диагонали +10
+4. По окончанию игры выводится её результат - выигравшая фигура и количество ходов от начала игры до её завершения +10
+5. Результаты последних 10 игр сохраняются в local storage. Есть таблица рекордов, в которой отображаются результаты предыдущих 10 игр +10
+6. Анимации или звуки, или настройки игры. Баллы начисляются за любой из перечисленных пунктов +10
+7. Очень высокое качество оформления приложения и/или дополнительный не предусмотренный в задании функционал, улучшающий качество приложения +10
+   - высокое качество оформления приложения предполагает собственное оригинальное оформление равное или отличающееся в лучшую сторону по сравнению с демо +10`);
