@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe</title>
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="page">
+  <header class="header">
+    <div class="container header__container">
+      <h1>Tic Tac Toe</h1>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container main__container">
+      <div class="game-field hide">
+        <div data-cell-index="0" class="cell"></div>
+        <div data-cell-index="1" class="cell"></div>
+        <div data-cell-index="2" class="cell"></div>
+        <div data-cell-index="3" class="cell"></div>
+        <div data-cell-index="4" class="cell"></div>
+        <div data-cell-index="5" class="cell"></div>
+        <div data-cell-index="6" class="cell"></div>
+        <div data-cell-index="7" class="cell"></div>
+        <div data-cell-index="8" class="cell"></div>
+      </div>
+
+      <div class="button__container hide">
+        <button class="button button__reset button__reset--inactive" type="button">Reset Game</button>
+        <button class="button button__history" type="button">History</button>
+      </div>
+
+      <button class="button button__play" type="button">Let's play</button>
+    </div>
+
+    <div class="blackout hide"></div>
+    <div class="pop-up hide">
+      <h2 class="pop-up__header">Game over</h2>
+      <p class="pop-up__message"></p>
+      <button class="button pop-up__button" type="button">Play again?</button>
+    </div>
+
+    <div class="history hide">
+      <span class="history__button-close"></span>
+      <h2 class="history__header">History</h2>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__container">
+      
+      <div class="author">
+        <div class="copyright">©</div>
+        <div class="year">2022</div>
+        <a class="github" href="https://github.com/zhadan93">github</a>
+      </div>
+
+      <a class="rss__link" href="https://rs.school/js-stage0/">
+        <svg class="rss__logo">
+          <use href="./assets/svg/sprite.svg#rss"></use>
+        </svg>
+      </a>
+
+    </div>
+  </footer>
+
+  <script src="./index.js"></script>
+</body>
+</html>
