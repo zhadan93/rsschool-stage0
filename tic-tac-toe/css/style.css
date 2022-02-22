@@ -131,7 +131,7 @@
 
   transform: translate(-50%, -50%);
 
-  animation: opacity 0.7s;
+  animation: opacity 0.5s;
 }
 
 .game-field {
@@ -145,7 +145,7 @@
   font-size: 70px;
   color: inherit;
 
-  animation: opacity 0.7s;
+  animation: opacity 0.5s;
 }
 
 .cell {
@@ -201,7 +201,7 @@
   gap: 10px;
   width: 100%;
 
-  animation: opacity 0.7s;
+  animation: opacity 0.5s;
 }
 
 .button__history {
@@ -217,7 +217,8 @@
   cursor: pointer;
 }
 
-.blackout {
+.history__blackout,
+.pop-up__blackout {
   position: absolute;
   z-index: 1;
   left: 0;
@@ -227,7 +228,7 @@
   
   background-color: rgba(0, 0, 0, 0.5);
 
-  animation: opacity 0.7s;
+  animation: opacity 0.5s;
 }
 
 .pop-up {
@@ -253,7 +254,7 @@
   
   transform: translate(-50%, -50%);
 
-  animation: opacity 0.7s;
+  animation: opacity 0.5s;
 }
 
 .pop-up__message {

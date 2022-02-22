@@ -122,7 +122,7 @@ const winningCombinations = [
   [2, 4, 6]
 ];
 
-const blackout = document.querySelector('.blackout');
+const popUpBlackout = document.querySelector('.pop-up__blackout');
 const popUp = document.querySelector('.pop-up');
 const popUpMessage = document.querySelector('.pop-up__message');
 const popUpButton = document.querySelector('.pop-up__button');
@@ -153,7 +153,7 @@ function getResult() {
 let messages = [];
 
 function showWinner(message) {
-  const shawElements = [blackout, popUp];
+  const shawElements = [popUpBlackout, popUp];
   shawElement(shawElements);
 
   popUpMessage.textContent = message;
@@ -184,7 +184,7 @@ function showResult() {
 }
 
 function resetGame() {
-  const hideElements = [popUp, blackout];
+  const hideElements = [popUp, popUpBlackout];
 
   hideElement(hideElements);
   clearGameField();
@@ -232,11 +232,12 @@ function getLocalStorage() {
 
 window.addEventListener('load', getLocalStorage);
 
+const historyBlackout = document.querySelector('.history__blackout');
 const history = document.querySelector('.history');
 const historyButtonClose = document.querySelector('.history__button-close');
 
 function showHistory() {
-  const shawElements = [blackout, history];
+  const shawElements = [historyBlackout, history];
   shawElement(shawElements);
   
   messages.forEach((message, index) => {
@@ -252,9 +253,9 @@ historyButton.addEventListener('click', showHistory);
 function closeHistory() {
   const historyRecords = document.querySelectorAll('.history__record');
 
-  const hideElements = [blackout, history];
+  const hideElements = [historyBlackout, history];
   hideElement(hideElements);
-  setTimeout(() => historyRecords.forEach(record => record.remove()), 700);
+  setTimeout(() => historyRecords.forEach(record => record.remove()), 450);
 }
 
 historyButtonClose.addEventListener('click', closeHistory);
