@@ -60,6 +60,8 @@
 }
 
 .main__container {
+  position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -115,16 +117,35 @@
   box-shadow: inset 0 0 20px 10px var(--shadow);
 }
 
+.game__container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+
+  transform: translate(-50%, -50%);
+
+  animation: opacity 0.7s;
+}
+
 .game-field {
   display: flex;
   flex-wrap: wrap;
   width: 360px;
   height: 360px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 
   font-family: "PermanentMarker", sans-serif;
   font-size: 70px;
   color: inherit;
+
+  animation: opacity 0.7s;
 }
 
 .cell {
@@ -159,15 +180,6 @@
   border-left: 3px solid var(--decor-color);
 }
 
-.blackout.hide,
-.game-field.hide,
-.button__container.hide,
-.history.hide,
-.button__play.hide,
-.pop-up.hide {
-  display: none;
-}
-
 .cell:hover {
   cursor: pointer;
   background-color:rgba(255, 255, 255, 0.2);
@@ -188,6 +200,8 @@
   justify-content: center;
   gap: 10px;
   width: 100%;
+
+  animation: opacity 0.7s;
 }
 
 .button__history {
@@ -205,19 +219,22 @@
 
 .blackout {
   position: absolute;
-  z-index: 10;
+  z-index: 1;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
+  
   background-color: rgba(0, 0, 0, 0.5);
+
+  animation: opacity 0.7s;
 }
 
 .pop-up {
   position: absolute;
   top: 50%;
   left: 50%;
-  z-index: 15;
+  z-index: 2;
 
   display: flex;
   flex-direction: column;
@@ -234,7 +251,9 @@
   border: 6px solid #000000;
   border-radius: 350px;
   
-  transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%);
+
+  animation: opacity 0.7s;
 }
 
 .pop-up__message {
@@ -245,7 +264,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  z-index: 15;
+  z-index: 2;
 
   width: 450px;
   height: auto;
@@ -257,7 +276,18 @@
   border: 6px solid var(--decor-color);
   border-radius: 20px;
 
-  transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%);
+
+  animation: opacity 0.5s;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .history__button-close {
@@ -267,6 +297,8 @@
 
   width: 28px;
   height: 28px;
+
+  transition: 0.7s;
 }
   
 .history__button-close:before, .history__button-close:after {
@@ -303,6 +335,26 @@
 
 .history__record:last-child {
   margin-bottom: 0;
+}
+
+.hide {
+  display: none;
+}
+
+.hide-animation {
+  animation: noneOpacity 0.5s forwards;
+}
+
+@keyframes noneOpacity {
+  0% {
+    opacity: 1;
+  }
+  99.9% {
+    opacity: 0;
+  }
+  100% {
+    z-index: -1;
+  }
 }
 
 .footer__container {

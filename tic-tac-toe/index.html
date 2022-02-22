@@ -18,24 +18,26 @@
 
   <main class="main">
     <div class="container main__container">
-      <div class="game-field hide">
-        <div data-cell-index="0" class="cell"></div>
-        <div data-cell-index="1" class="cell"></div>
-        <div data-cell-index="2" class="cell"></div>
-        <div data-cell-index="3" class="cell"></div>
-        <div data-cell-index="4" class="cell"></div>
-        <div data-cell-index="5" class="cell"></div>
-        <div data-cell-index="6" class="cell"></div>
-        <div data-cell-index="7" class="cell"></div>
-        <div data-cell-index="8" class="cell"></div>
-      </div>
+      <div class="game__container hide">
+        <div class="game-field">
+          <div data-cell-index="0" class="cell"></div>
+          <div data-cell-index="1" class="cell"></div>
+          <div data-cell-index="2" class="cell"></div>
+          <div data-cell-index="3" class="cell"></div>
+          <div data-cell-index="4" class="cell"></div>
+          <div data-cell-index="5" class="cell"></div>
+          <div data-cell-index="6" class="cell"></div>
+          <div data-cell-index="7" class="cell"></div>
+          <div data-cell-index="8" class="cell"></div>
+        </div>
 
-      <div class="button__container hide">
-        <button class="button button__reset button__reset--inactive" type="button">Reset Game</button>
-        <button class="button button__history" type="button">History</button>
-        <svg class="sound">
-          <use href="./assets/svg/sprite.svg#unmute" class="button__sound-icon"></use>
-        </svg>
+        <div class="button__container">
+          <button class="button button__reset button__reset--inactive" type="button">Reset Game</button>
+          <button class="button button__history" type="button">History</button>
+          <svg class="sound">
+            <use href="./assets/svg/sprite.svg#unmute" class="button__sound-icon"></use>
+          </svg>
+        </div>
       </div>
 
       <button class="button button__play" type="button">Let's play</button>

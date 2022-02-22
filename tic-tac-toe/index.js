@@ -9,20 +9,24 @@ let winner = false;
 function hideElement(element) {
   if (!Array.isArray(element)) element = [element];
 
-  element.forEach(el => el.classList.add('hide'));
+  element.forEach(el => el.classList.add('hide-animation'));
 } 
 
 function shawElement(element) {
   if (!Array.isArray(element)) element = [element];
 
-  element.forEach(el => el.classList.remove('hide'));
+  element.forEach(el => {
+    const className = el.classList.contains('hide') ? 'hide' : 'hide-animation';
+    el.classList.remove(className);
+  })
 } 
+
+const gameContainer = document.querySelector('.game__container');
 
 function drawGameField() {
   hideElement(playButton);
   
-  const shawElements = [gameField, buttonContainer];
-  shawElement(shawElements);
+  shawElement(gameContainer);
 }
 
 playButton.addEventListener('click', drawGameField);
@@ -247,11 +251,10 @@ historyButton.addEventListener('click', showHistory);
 
 function closeHistory() {
   const historyRecords = document.querySelectorAll('.history__record');
-  
-  historyRecords.forEach(record => record.remove());
 
   const hideElements = [blackout, history];
   hideElement(hideElements);
+  setTimeout(() => historyRecords.forEach(record => record.remove()), 700);
 }
 
 historyButtonClose.addEventListener('click', closeHistory);
