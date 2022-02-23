@@ -110,11 +110,10 @@ function handleCellClick(cellClick) {
   if (gameSteps > 4) showResult();
 }
 
-if (!gameOver) {
-  gameField.addEventListener('click', event => {
-    if (event.target.classList.contains('cell') && !gameOver) handleCellClick(event.target);
-  });
-}
+gameField.addEventListener('click', event => {
+  if (event.target.classList.contains('cell') && !gameOver) handleCellClick(event.target);
+});
+
 
 
 // Implement game result pop-up
@@ -279,7 +278,7 @@ const playerSounds = ['X', 'O'];
 function preloadPlayerSounds() {
   playerSounds.forEach(sound => {
       const audio = new Audio();
-      audio.src = `./assets/audio/Click${sound}.mp3`;
+      audio.src = `./assets/audio/click${sound}.mp3`;
   });
   
 }
