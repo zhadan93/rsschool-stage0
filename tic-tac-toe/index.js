@@ -1,11 +1,15 @@
+const startGameButton = document.querySelector('.button__start-game');
+
+const gameInterface = document.querySelector('.game__container');
 const gameField = document.querySelector('.game-field');
 const buttonContainer = document.querySelector('.button__container');
 const resetButton = document.querySelector('.button__reset');
 const historyButton = document.querySelector('.button__history');
-const playButton = document.querySelector('.button__play');
 
-let winner = false;
+let gameOver = false;
+let playSound = true;
 
+// Draw game interface
 function hideElement(element) {
   if (!Array.isArray(element)) element = [element];
 
@@ -18,72 +22,28 @@ function shawElement(element) {
   element.forEach(el => {
     const className = el.classList.contains('hide') ? 'hide' : 'hide-animation';
     el.classList.remove(className);
-  })
+  });
 } 
 
-const gameContainer = document.querySelector('.game__container');
-
-function drawGameField() {
-  hideElement(playButton);
-  
-  shawElement(gameContainer);
+function drawGameInterface() {
+  hideElement(startGameButton);
+  shawElement(gameInterface);
 }
 
-playButton.addEventListener('click', drawGameField);
+startGameButton.addEventListener('click', drawGameInterface);
 
 
-let isPlay = true;
-
-const sound = document.querySelector('.sound');
-const soundButton = document.querySelector('.button__sound-icon');
+// Work with game field
+const cells = document.querySelectorAll('.cell');
 
 const audio = new Audio();
-audio.src = `./assets/audio/clickX.mp3`;
-audio.currentTime = 0;
-
-function toggleSoundButton () {
-  soundIcon = isPlay == true ?  'unmute' : 'mute';
-  soundButton.setAttribute('href', `./assets/svg/sprite.svg#${soundIcon}`)
-}
-
-function toggleVolume() {
-  audio.volume = isPlay == true ? 1 : 0;
-}
-
-function handleButtonSound() {
-  isPlay = isPlay == true ? false : true;
-  toggleVolume();
-  toggleSoundButton();
-}
-
-sound.addEventListener('click', handleButtonSound);
-
 
 let gameSteps = 0;
 let currentPlayer = 'X';
-let playedCells = [];
+let filledCells = [];
 
-function togglePlayerSound() {
-  audio.src = `./assets/audio/click${currentPlayer}.mp3`;
-}
-
-function togglePlayingSound() {
-  isPlay == true ? audio.play() : audio.pause();
-}
-
-function handleSound() {
-  togglePlayerSound();
-  togglePlayingSound()
-}
-
-function drawFigure(cellPlayed) {
-  cellPlayed.textContent = currentPlayer == 'X' ? 'O' : 'X';
-}
-
-function changeGameStates(cellIndex) {
-  playedCells[cellIndex] = currentPlayer;
-  currentPlayer = currentPlayer == 'X' ? 'O' : 'X';
-  gameSteps++;
+function addInactiveClass(element, className) {
+  element.classList.add(`${className}--inactive`);
 }
 
 function removeInactiveClass(element, className) {
@@ -91,40 +51,77 @@ function removeInactiveClass(element, className) {
 }
 
 function clearGameField() {
-  winner = false;
-  gameSteps = 0;
-  currentPlayer = 'X';
-  addInactiveClass(resetButton, 'button__reset');
   cells.forEach(cell => {
     cell.textContent = '';
     removeInactiveClass(cell, 'cell');
     cell.classList.remove('winner');
   });
+}
 
-  playedCells = [];
+function resetGame() {
+  gameOver = false;
+  gameSteps = 0;
+  currentPlayer = 'X';
+  filledCells = [];
+  addInactiveClass(resetButton, 'button__reset');
+  clearGameField();
+}
+
+// Work with sound effects during the player's move
+function togglePlayerSound() {
+  audio.src = `./assets/audio/click${currentPlayer}.mp3`;
+  audio.currentTime = 0;
+}
+
+function togglePlayingSound() {
+  playSound ? audio.play() : audio.pause();
+}
+
+function handleSound() {
+  togglePlayerSound();
+  togglePlayingSound();
+}
+
+function changeGameStates(cellIndex) {
+  filledCells[cellIndex] = currentPlayer;
+  currentPlayer = currentPlayer == 'X' ? 'O' : 'X';
+  gameSteps++;
+}
+
+function drawFigure(cellPlayed) {
+  cellPlayed.textContent = currentPlayer == 'X' ? 'O' : 'X';
 }
 
 function handleCellClick(cellClick) {
   const {cellIndex} = cellClick.dataset;
 
-  if (playedCells[cellIndex] !== undefined) return;
+  if (filledCells[cellIndex] !== undefined) return;
   
   changeGameStates(cellIndex);
 
   removeInactiveClass(resetButton, 'button__reset');
-  resetButton.addEventListener('click', clearGameField);
-  drawFigure(cellClick);
+  resetButton.addEventListener('click', resetGame);
+
   handleSound();
+  
+  drawFigure(cellClick);
   addInactiveClass(cellClick, 'cell');
 
   if (gameSteps > 4) showResult();
 }
 
-if (winner == false) {
+if (!gameOver) {
   gameField.addEventListener('click', event => {
-    if (event.target.classList.contains('cell') && !winner) handleCellClick(event.target);
+    if (event.target.classList.contains('cell') && !gameOver) handleCellClick(event.target);
   });
 }
+
+
+// Implement game result pop-up
+const blackout = document.querySelector('.blackout');
+const gameResultPopUp = document.querySelector('.pop-up');
+const gameResultPopUpMessage = document.querySelector('.pop-up__message');
+const gameResultPopUpResetButton = document.querySelector('.pop-up__button');
 
 const winningCombinations = [
   [0, 1, 2],
@@ -137,135 +134,156 @@ const winningCombinations = [
   [2, 4, 6]
 ];
 
-const blackout = document.querySelector('.blackout');
-const popUp = document.querySelector('.pop-up');
-const popUpMessage = document.querySelector('.pop-up__message');
-const popUpButton = document.querySelector('.pop-up__button');
+const showDrawResultMessage = () => 'Game ended in a draw!';
+const showWinnerResultMessage = (winningPlayer) => `Player '${winningPlayer}' has won the game. Steps: ${gameSteps}`;
 
-const showDrawMessage = () => 'Game ended in a draw!';
-const showResultMessage = (win) => `Player '${win}' has won the game. Steps: ${gameSteps}`;
-
-const cells = document.querySelectorAll('.cell');
-
-function getResult() {
-  for (let i = 0; i < 8; i++) {
-    const winCombination = winningCombinations[i];
-    let a = playedCells[winCombination[0]];
-    let b = playedCells[winCombination[1]];
-    let c = playedCells[winCombination[2]];
-    
-    if (a === undefined || b === undefined || c === undefined) continue;
-
-    if (a === b && b === c) return {
-        winCombination,
-        winnerFigure: a,
-      }
-  }
-
-  if (!playedCells.includes(undefined) && gameSteps == 9) return 'draw';
-}
-
-let messages = [];
-
-function showWinner(message) {
-  const shawElements = [blackout, popUp];
-  shawElement(shawElements);
-
-  popUpMessage.textContent = message;
-}
+let gameOverMessages = [];
 
 function showResult() {
-  let message = '';
+  let gameOverMessage = '';
 
-  const win = getResult();
+  const result = getResult();
 
-  if (win == undefined) return;
+  if (!result) return;
 
-  if (win == 'draw') message = showDrawMessage(); 
-  if (typeof(win) == 'object') {
-    const {winCombination, winnerFigure} = win;
-    message = showResultMessage(winnerFigure);
-    winCombination.forEach(item => document.querySelector(`[data-cell-index="${item}"]`).classList.add('winner'));
+  if (result == 'draw') gameOverMessage = showDrawResultMessage(); 
+
+  if (typeof(result) == 'object') {
+    const {winningCombination, winnerFigure} = result;
+    gameOverMessage = showWinnerResultMessage(winnerFigure);
+    winningCombination.forEach(cell => document.querySelector(`[data-cell-index="${cell}"]`).classList.add('winner'));
   }
 
-  winner = true;
+  gameOver = true;
 
   cells.forEach(cell => addInactiveClass(cell, 'cell'));
+
   addInactiveClass(resetButton, 'button__reset');
   resetButton.removeEventListener('click', clearGameField);
+
   addInactiveClass(historyButton, 'button__history');
-  historyButton.removeEventListener('click', showHistory);
+  historyButton.removeEventListener('click', showGameHistoryPopUp);
 
-  setTimeout(() => showWinner(message), 500);
+  setTimeout(() => showGameResult(gameOverMessage), 500);
 
-  messages.unshift(message);
+  gameOverMessages.unshift(gameOverMessage);
 
-  if (messages.length > 10) messages.pop();
+  if (gameOverMessages.length > 10) gameOverMessages.pop();
 }
 
-function resetGame() {
-  const hideElements = [popUp, blackout];
+function getResult() {
+  for (let i = 0; i < winningCombinations.length; i++) {
+    const winningCombination = winningCombinations[i];
+    
+    const filledCellCombination = winningCombination.map(cell => filledCells[cell]);
+    
+    if (filledCellCombination.includes(undefined)) continue;
+
+    if ([...new Set(filledCellCombination)].length == 1) return {
+      winningCombination,
+      winnerFigure: filledCellCombination[0],
+    }
+  }
+
+  if (!filledCells.includes(undefined) && gameSteps == cells.length) return 'draw';
+}
+
+function showGameResult(message) {
+  const shawElements = [blackout, gameResultPopUp];
+  shawElement(shawElements);
+
+  gameResultPopUpMessage.textContent = message;
+}
+
+// Close game result pop-up and reset game
+function closeGameResultPopUpAndResetGame() {
+  const hideElements = [gameResultPopUp, blackout];
 
   hideElement(hideElements);
-  clearGameField();
-  historyButton.addEventListener('click', showHistory);
+  resetGame();
+  historyButton.addEventListener('click', showGameHistoryPopUp);
   removeInactiveClass(historyButton, 'button__history');
 }
 
-popUpButton.addEventListener('click', resetGame);
+gameResultPopUpResetButton.addEventListener('click', closeGameResultPopUpAndResetGame);
 
+// Implement game history pop-up
+const gameHistoryPopUp = document.querySelector('.history');
+const gameHistoryPopUpCloseButton = document.querySelector('.history__button-close');
 
-function addInactiveClass(element, className) {
-  element.classList.add(`${className}--inactive`);
-}
-
-
-function setLocalStorage(entries) {
-  entries.forEach(entry => localStorage.setItem(entry[0], entry[1]));
-}
-
-window.addEventListener('beforeunload', () => {
-  const messagesForLocalStorage = [['messages', messages]];
-  setLocalStorage(messagesForLocalStorage);
-});
-
-function getLocalStorage() {
-  const localStorageMessages = localStorage.getItem('messages');
-
-  if (localStorageMessages) {
-    messages = localStorageMessages.split(',');
-  }
-}
-
-window.addEventListener('load', getLocalStorage);
-
-const history = document.querySelector('.history');
-const historyButtonClose = document.querySelector('.history__button-close');
-
-function showHistory() {
-  const shawElements = [blackout, history];
+function showGameHistoryPopUp() {
+  const shawElements = [blackout, gameHistoryPopUp];
   shawElement(shawElements);
   
-  messages.forEach((message, index) => {
+  gameOverMessages.forEach((message, index) => {
     const div = document.createElement('div');
     div.classList.add('history__record');
     div.textContent = `${index + 1}. ${message}`;
-    history.append(div);
+    gameHistoryPopUp.append(div);
   })
 }
 
-historyButton.addEventListener('click', showHistory);
+historyButton.addEventListener('click', showGameHistoryPopUp);
 
-
+// Close game history pop-up
 function closeHistory() {
   const historyRecords = document.querySelectorAll('.history__record');
 
-  const hideElements = [blackout, history];
+  const hideElements = [gameHistoryPopUp, blackout];
   hideElement(hideElements);
   setTimeout(() => historyRecords.forEach(record => record.remove()), 450);
 }
 
-historyButtonClose.addEventListener('click', closeHistory);
+gameHistoryPopUpCloseButton.addEventListener('click', closeHistory);
+
+
+// Work with sound button
+const soundButton = document.querySelector('.sound');
+const soundButtonIcon = document.querySelector('.button__sound-icon');
+
+function toggleSoundButton() {
+  const soundIcon = playSound ? 'unmute' : 'mute';
+  soundButtonIcon.setAttribute('href', `./assets/svg/sprite.svg#${soundIcon}`);
+}
+
+function handleSoundButton() {
+  playSound = playSound ? false : true;
+  toggleSoundButton();
+}
+
+soundButton.addEventListener('click', handleSoundButton);
+
+
+// Work with localStorage
+// Save data to localStorage on page beforeunload
+function setLocalStorage() {
+  const entriesForLocalStorage = [['gameOverMessages', gameOverMessages]];
+  entriesForLocalStorage.forEach(entry => localStorage.setItem(entry[0], entry[1]));
+}
+
+window.addEventListener('beforeunload', setLocalStorage);
+
+// Get data from localStorage on page load
+function getLocalStorage() {
+  const localStorageGameOverMessages = localStorage.getItem('gameOverMessages');
+
+  if (localStorageGameOverMessages) gameOverMessages = localStorageGameOverMessages.split(',');
+}
+
+window.addEventListener('load', getLocalStorage);
+
+
+// Cache sounds
+const playerSounds = ['X', 'O'];
+
+function preloadPlayerSounds() {
+  playerSounds.forEach(sound => {
+      const audio = new Audio();
+      audio.src = `./assets/audio/Click${sound}.mp3`;
+  });
+  
+}
+preloadPlayerSounds();
 
 console.log(`Самооценка за задание 70 баллов
 1. Вёрстка +10
