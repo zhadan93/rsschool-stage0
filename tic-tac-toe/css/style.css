@@ -4,7 +4,6 @@
   --font-title: 40px;
   --font: 20px;
   --text-color: #ffffff;
-  --text-hover-color: #9cb9f8;
 
   --shadow: #bfd4ff;
   --decor-color: #000000;
@@ -91,7 +90,8 @@
   cursor: pointer;
 }
 
-.button__reset--inactive {
+.button__reset--inactive,
+.button__history--inactive {
   color: var(--inactive-color);
 
   background-color: #f2f2f2;
@@ -103,7 +103,7 @@
   cursor: default;
 }
 
-.button__play {
+.button__start-game {
   width: 250px;
   height: 250px;
 
@@ -113,7 +113,7 @@
   border-radius: 200px;
 }
 
-.button__play:hover {
+.button__start-game:hover {
   box-shadow: inset 0 0 20px 10px var(--shadow);
 }
 
@@ -217,8 +217,7 @@
   cursor: pointer;
 }
 
-.history__blackout,
-.pop-up__blackout {
+.blackout {
   position: absolute;
   z-index: 1;
   left: 0;
@@ -376,7 +375,7 @@
 .github {
   display: flex;
   align-items: center;
-  height: 100%;
+  height: 65%;
 
   color: inherit;
   text-decoration: none;
@@ -388,7 +387,7 @@
   color: transparent;    
 	-webkit-background-clip: text;
 	background-clip: text;
-	background-image: linear-gradient(90deg, #c1c0fd, #53d4ca);
+	background-image: linear-gradient(90deg, #53d4ca, #c1c0fd);
 
   transition: 0.7s;
 }
@@ -404,11 +403,11 @@
   transition: 0.7s;
 }
 .rss__logo:hover .left {
-  stop-color: #c1c0fd;
+  stop-color: #53d4ca;
 }
 
 .rss__logo:hover .right {
-  stop-color: #53d4ca;
+  stop-color: #c1c0fd;
 }
 
 @media (max-width: 768px) {
