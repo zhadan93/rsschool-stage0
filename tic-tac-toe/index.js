@@ -90,6 +90,20 @@ function removeInactiveClass(element, className) {
   element.classList.remove(`${className}--inactive`);
 }
 
+function clearGameField() {
+  winner = false;
+  gameSteps = 0;
+  currentPlayer = 'X';
+  addInactiveClass(resetButton, 'button__reset');
+  cells.forEach(cell => {
+    cell.textContent = '';
+    removeInactiveClass(cell, 'cell');
+    cell.classList.remove('winner');
+  });
+
+  playedCells = [];
+}
+
 function handleCellClick(cellClick) {
   const {cellIndex} = cellClick.dataset;
 
@@ -97,12 +111,13 @@ function handleCellClick(cellClick) {
   
   changeGameStates(cellIndex);
 
-  if (gameSteps > 4) showResult();
-
   removeInactiveClass(resetButton, 'button__reset');
+  resetButton.addEventListener('click', clearGameField);
   drawFigure(cellClick);
   handleSound();
   addInactiveClass(cellClick, 'cell');
+
+  if (gameSteps > 4) showResult();
 }
 
 if (winner == false) {
@@ -122,7 +137,7 @@ const winningCombinations = [
   [2, 4, 6]
 ];
 
-const popUpBlackout = document.querySelector('.pop-up__blackout');
+const blackout = document.querySelector('.blackout');
 const popUp = document.querySelector('.pop-up');
 const popUpMessage = document.querySelector('.pop-up__message');
 const popUpButton = document.querySelector('.pop-up__button');
@@ -153,7 +168,7 @@ function getResult() {
 let messages = [];
 
 function showWinner(message) {
-  const shawElements = [popUpBlackout, popUp];
+  const shawElements = [blackout, popUp];
   shawElement(shawElements);
 
   popUpMessage.textContent = message;
@@ -164,6 +179,8 @@ function showResult() {
 
   const win = getResult();
 
+  if (win == undefined) return;
+
   if (win == 'draw') message = showDrawMessage(); 
   if (typeof(win) == 'object') {
     const {winCombination, winnerFigure} = win;
@@ -171,23 +188,28 @@ function showResult() {
     winCombination.forEach(item => document.querySelector(`[data-cell-index="${item}"]`).classList.add('winner'));
   }
 
-  if (win !== undefined) {
-    winner = true;
-    cells.forEach(cell => addInactiveClass(cell, 'cell'));
+  winner = true;
 
-    setTimeout(() => showWinner(message), 500);
+  cells.forEach(cell => addInactiveClass(cell, 'cell'));
+  addInactiveClass(resetButton, 'button__reset');
+  resetButton.removeEventListener('click', clearGameField);
+  addInactiveClass(historyButton, 'button__history');
+  historyButton.removeEventListener('click', showHistory);
 
-    messages.unshift(message);
+  setTimeout(() => showWinner(message), 500);
 
-    if (messages.length > 10) messages.pop();
-  }
+  messages.unshift(message);
+
+  if (messages.length > 10) messages.pop();
 }
 
 function resetGame() {
-  const hideElements = [popUp, popUpBlackout];
+  const hideElements = [popUp, blackout];
 
   hideElement(hideElements);
   clearGameField();
+  historyButton.addEventListener('click', showHistory);
+  removeInactiveClass(historyButton, 'button__history');
 }
 
 popUpButton.addEventListener('click', resetGame);
@@ -197,21 +219,6 @@ function addInactiveClass(element, className) {
   element.classList.add(`${className}--inactive`);
 }
 
-function clearGameField() {
-  winner = false;
-  gameSteps = 0;
-  currentPlayer = 'X';
-  addInactiveClass(resetButton, 'button__reset');
-  cells.forEach(cell => {
-    cell.textContent = '';
-    removeInactiveClass(cell, 'cell');
-    cell.classList.remove('winner');
-  });
-
-  playedCells = [];
-}
-
-resetButton.addEventListener('click', clearGameField);
 
 function setLocalStorage(entries) {
   entries.forEach(entry => localStorage.setItem(entry[0], entry[1]));
@@ -232,12 +239,11 @@ function getLocalStorage() {
 
 window.addEventListener('load', getLocalStorage);
 
-const historyBlackout = document.querySelector('.history__blackout');
 const history = document.querySelector('.history');
 const historyButtonClose = document.querySelector('.history__button-close');
 
 function showHistory() {
-  const shawElements = [historyBlackout, history];
+  const shawElements = [blackout, history];
   shawElement(shawElements);
   
   messages.forEach((message, index) => {
@@ -250,10 +256,11 @@ function showHistory() {
 
 historyButton.addEventListener('click', showHistory);
 
+
 function closeHistory() {
   const historyRecords = document.querySelectorAll('.history__record');
 
-  const hideElements = [historyBlackout, history];
+  const hideElements = [blackout, history];
   hideElement(hideElements);
   setTimeout(() => historyRecords.forEach(record => record.remove()), 450);
 }

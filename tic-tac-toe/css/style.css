@@ -91,7 +91,8 @@
   cursor: pointer;
 }
 
-.button__reset--inactive {
+.button__reset--inactive,
+.button__history--inactive {
   color: var(--inactive-color);
 
   background-color: #f2f2f2;
@@ -217,8 +218,7 @@
   cursor: pointer;
 }
 
-.history__blackout,
-.pop-up__blackout {
+.blackout {
   position: absolute;
   z-index: 1;
   left: 0;
