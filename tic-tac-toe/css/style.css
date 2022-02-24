@@ -14,14 +14,18 @@
 
 @font-face {
   font-family: "PermanentMarker";
-  src: url("../assets/fonts/PermanentMarkerRegular.ttf");
+  src: url("../assets/fonts/PermanentMarkerRegular.woff") format('woff'),
+       url("../assets/fonts/PermanentMarkerRegular.woff2") format('woff2');
   font-weight: 400;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "GloriaHallelujah";
-  src: url("../assets/fonts/GloriaHallelujahRegular.ttf");
+  src: url("../assets/fonts/GloriaHallelujahRegular.woff") format('woff'),
+       url("../assets/fonts/GloriaHallelujahRegular.woff2") format('woff2');
   font-weight: 400;
+  font-display: swap;
 }
 
 * {
@@ -29,7 +33,7 @@
 }
 
 .page {
-  font-family: "GloriaHallelujah";
+  font-family: "GloriaHallelujah", sans-serif;
   font-size: var(--font);
   color: var(--text-color);
 
@@ -141,7 +145,7 @@
   height: 360px;
   margin-bottom: 30px;
 
-  font-family: "PermanentMarker";
+  font-family: "PermanentMarker", sans-serif;
   font-size: 70px;
   color: inherit;
 
