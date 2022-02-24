@@ -14,16 +14,16 @@
 
 @font-face {
   font-family: "PermanentMarker";
-  src: url("../assets/fonts/PermanentMarkerRegular.woff") format('woff'),
-       url("../assets/fonts/PermanentMarkerRegular.woff2") format('woff2');
+  src: url("../assets/fonts/PermanentMarkerRegular.woff2") format('woff2'),
+       url("../assets/fonts/PermanentMarkerRegular.woff") format('woff');
   font-weight: 400;
   font-display: swap;
 }
 
 @font-face {
   font-family: "GloriaHallelujah";
-  src: url("../assets/fonts/GloriaHallelujahRegular.woff") format('woff'),
-       url("../assets/fonts/GloriaHallelujahRegular.woff2") format('woff2');
+  src: url("../assets/fonts/GloriaHallelujahRegular.woff2") format('woff2'),
+       url("../assets/fonts/GloriaHallelujahRegular.woff") format('woff');
   font-weight: 400;
   font-display: swap;
 }
